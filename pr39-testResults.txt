@@ -1,0 +1,22 @@
+[==========] Running 7 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 7 tests from memoryoperations
+[ RUN      ] memoryoperations.init
+[       OK ] memoryoperations.init (0 ms)
+[ RUN      ] memoryoperations.memmoveCopy
+[       OK ] memoryoperations.memmoveCopy (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyOverSelf
+[       OK ] memoryoperations.memmoveCopyOverSelf (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyOverSelfNext
+[       OK ] memoryoperations.memmoveCopyOverSelfNext (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyLast
+[       OK ] memoryoperations.memmoveCopyLast (0 ms)
+[ RUN      ] memoryoperations.memmoveReturnValue
+[       OK ] memoryoperations.memmoveReturnValue (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyOverSelfPrevious
+[       OK ] memoryoperations.memmoveCopyOverSelfPrevious (0 ms)
+[----------] 7 tests from memoryoperations (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 7 tests.
