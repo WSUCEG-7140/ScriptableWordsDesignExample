@@ -41,11 +41,12 @@ set_property(TARGET tests PROPERTY CXX_STANDARD 11)
 
 ###############################################################################
 add_custom_target(coverage
-    COMMAND tests
+    COMMAND tests > testResults.txt
     COMMAND llvm-profdata merge -sparse default.profraw -o cumulative.profdata
     COMMAND llvm-cov show -ignore-filename-regex='../google*/*' -ignore-filename-regex='../json/*' -format="html" ./tests -instr-profile=cumulative.profdata > coverageLines.html
     COMMAND llvm-cov report -show-region-summary=false -ignore-filename-regex='../google*/*' -ignore-filename-regex='../json/*'  ./tests -instr-profile=cumulative.profdata > coverageSummary.txt
     COMMAND cat coverageSummary.txt
+    COMMAND cat testResults.txt
 )
 add_dependencies(coverage tests)
 

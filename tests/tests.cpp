@@ -101,8 +101,6 @@ int main(int argc, char* argv[])
     ::testing::InitGoogleTest(&argc, argv);
     auto result = RUN_ALL_TESTS();
 
-    std::cout << ((0 != result) ? "\nOne or more tests failed.\n" : "\n");
-
     exit(0);
-    return 0;
+    // There is no return statement because preceding exit() never returns
 }
