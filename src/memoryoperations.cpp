@@ -7,7 +7,7 @@ Pet* MemoryOperations::memmove(
 {
     if (destination_p > source_p) {
         for (int32_t i = count - 1; i >= 0; --i) {
-            destination_p[i] = source_p[i];
+            //destination_p[i] = source_p[i];
         }
     } else {
         Pet* current_p = destination_p;
