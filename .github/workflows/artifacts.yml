@@ -46,3 +46,6 @@ jobs:
 
           # Whitespace-separated list of files to upload
           artifacts: |
+            build/coverageSummary.txt
+            build/coverageLines.html
+            
