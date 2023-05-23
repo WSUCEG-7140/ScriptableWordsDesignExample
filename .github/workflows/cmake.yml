@@ -76,3 +76,4 @@ jobs:
           artifacts: |
             build/coverageSummary.txt
             build/coverageLines.html
+            build/testResults.txt
