@@ -16,7 +16,7 @@ Expected equality of these values:
   true
   s_allEqual(pets, s_pets, s_petsNumber)
     Which is: false
-[  FAILED  ] memoryoperations.memmoveCopyOverSelf (0 ms)
+[  FAILED  ] memoryoperations.memmoveCopyOverSelf (1 ms)
 [ RUN      ] memoryoperations.memmoveCopyOverSelfNext
 /home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/tests.cpp:64: Failure
 Expected equality of these values:
@@ -38,7 +38,7 @@ Expected equality of these values:
 [----------] 7 tests from memoryoperations (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 7 tests from 1 test suite ran. (2 ms total)
+[==========] 7 tests from 1 test suite ran. (1 ms total)
 [  PASSED  ] 3 tests.
 [  FAILED  ] 4 tests, listed below:
 [  FAILED  ] memoryoperations.memmoveCopy
@@ -47,5 +47,3 @@ Expected equality of these values:
 [  FAILED  ] memoryoperations.memmoveCopyOverSelfPrevious
 
  4 FAILED TESTS
-
-One or more tests failed.
