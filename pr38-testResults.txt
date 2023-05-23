@@ -18,5 +18,5 @@
 [----------] 7 tests from memoryoperations (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 7 tests from 1 test suite ran. (1 ms total)
+[==========] 7 tests from 1 test suite ran. (0 ms total)
 [  PASSED  ] 7 tests.
