@@ -102,4 +102,5 @@ int main(int argc, char* argv[])
     auto result = RUN_ALL_TESTS();
 
     exit(0);
+    // There is no return statement because preceding exit() never returns
 }
