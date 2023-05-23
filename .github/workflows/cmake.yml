@@ -50,9 +50,9 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: make coverage
 
-    - name: Aartifacts
-        uses: gavv/pull-request-artifacts@v1.0.0
-        with:
+    - name: Artifacts
+      uses: gavv/pull-request-artifacts@v1.0.0
+      with:
           # Commit hash that triggered PR
           commit: ${{ github.event.pull_request.head.sha }}
 
