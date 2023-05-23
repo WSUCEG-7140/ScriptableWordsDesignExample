@@ -1,0 +1,49 @@
+[==========] Running 7 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 7 tests from memoryoperations
+[ RUN      ] memoryoperations.init
+[       OK ] memoryoperations.init (0 ms)
+[ RUN      ] memoryoperations.memmoveCopy
+/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/tests.cpp:43: Failure
+Expected equality of these values:
+  true
+  s_allEqual(pets, s_pets, s_petsNumber)
+    Which is: false
+[  FAILED  ] memoryoperations.memmoveCopy (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyOverSelf
+/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/tests.cpp:53: Failure
+Expected equality of these values:
+  true
+  s_allEqual(pets, s_pets, s_petsNumber)
+    Which is: false
+[  FAILED  ] memoryoperations.memmoveCopyOverSelf (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyOverSelfNext
+/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/tests.cpp:64: Failure
+Expected equality of these values:
+  true
+  s_allEqual(&pets[1], s_pets, s_petsNumber - 1)
+    Which is: false
+[  FAILED  ] memoryoperations.memmoveCopyOverSelfNext (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyLast
+[       OK ] memoryoperations.memmoveCopyLast (1 ms)
+[ RUN      ] memoryoperations.memmoveReturnValue
+[       OK ] memoryoperations.memmoveReturnValue (0 ms)
+[ RUN      ] memoryoperations.memmoveCopyOverSelfPrevious
+/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/tests.cpp:93: Failure
+Expected equality of these values:
+  true
+  s_allEqual(&pets[0], &s_pets[1], s_petsNumber - 1)
+    Which is: false
+[  FAILED  ] memoryoperations.memmoveCopyOverSelfPrevious (0 ms)
+[----------] 7 tests from memoryoperations (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test suite ran. (1 ms total)
+[  PASSED  ] 3 tests.
+[  FAILED  ] 4 tests, listed below:
+[  FAILED  ] memoryoperations.memmoveCopy
+[  FAILED  ] memoryoperations.memmoveCopyOverSelf
+[  FAILED  ] memoryoperations.memmoveCopyOverSelfNext
+[  FAILED  ] memoryoperations.memmoveCopyOverSelfPrevious
+
+ 4 FAILED TESTS
