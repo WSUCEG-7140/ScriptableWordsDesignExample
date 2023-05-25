@@ -1,7 +1,7 @@
-#include "MemoryOperations.h"
-#include "Pet.h"
+#include "StoredString.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
+/// @imp @ref R1_0 it is necessary to execute the ...
 Pet* MemoryOperations::memmove(
     Pet* destination_p, const Pet* source_p, size_t count)
 {
