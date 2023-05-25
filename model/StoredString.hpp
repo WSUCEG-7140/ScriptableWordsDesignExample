@@ -17,6 +17,10 @@ namespace Model {
         /// @imp @ref R1_0 Storage for a string
         std::string m_string {};
 
+        /// @imp @ref R1_0
+        /// @return const refrence to teh stored string
+        std::string& _getString() { return m_string; }
+
     public:
         /// Default Constructor: @imp @ref R1_0 Initially store zero characters
         StoredString()
@@ -34,6 +38,14 @@ namespace Model {
         /// @imp @ref R1_0
         /// @return const refrence to teh stored string
         const std::string& getString() const { return m_string; }
+
+        /// @imp @ref R4_0
+        /// @param c
+        /// @param index
+        void insertCharacterAtIndex(char c, uint32_t index)
+        {
+            _getString().insert(index, 1, c);
+        }
     };
 
 } // namespace Model
