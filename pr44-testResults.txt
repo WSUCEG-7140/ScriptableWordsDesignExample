@@ -19,5 +19,5 @@
 [----------] 4 tests from R4_0 (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 6 tests from 2 test suites ran. (1 ms total)
+[==========] 6 tests from 2 test suites ran. (0 ms total)
 [  PASSED  ] 6 tests.
