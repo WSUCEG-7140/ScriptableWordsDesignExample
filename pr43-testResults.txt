@@ -1,0 +1,12 @@
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from R1_0
+[ RUN      ] R1_0.zeroCharacters
+[       OK ] R1_0.zeroCharacters (0 ms)
+[ RUN      ] R1_0.moreThanZeroCharacters
+[       OK ] R1_0.moreThanZeroCharacters (0 ms)
+[----------] 2 tests from R1_0 (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 2 tests.
