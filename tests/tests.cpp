@@ -20,6 +20,42 @@ TEST(R1_0, moreThanZeroCharacters)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R4_0
+TEST(R4_0, insertCharactersAtIndex0DoesNotRemoveAnything)
+{
+    WSU::Model::StoredString ss { "Hello, World!" };
+    ss.insertCharacterAtIndex('@', 0);
+    GTEST_ASSERT_EQ(ss.getString(), "@Hello, World!");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R4_0
+TEST(R4_0, insertCharactersAtIndex1DoesNotRemoveAnything)
+{
+    WSU::Model::StoredString ss { "Hello, World!" };
+    ss.insertCharacterAtIndex('@', 1);
+    GTEST_ASSERT_EQ(ss.getString(), "H@ello, World!");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R4_0
+TEST(R4_0, insertCharactersBeginOfEmpty)
+{
+    WSU::Model::StoredString ss { "" };
+    ss.insertCharacterAtIndex('@', 0);
+    GTEST_ASSERT_EQ(ss.getString(), "@");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R4_0
+TEST(R4_0, insertCharacterAtEnd)
+{
+    WSU::Model::StoredString ss { "abcdefg" };
+    ss.insertCharacterAtIndex('@', 7);
+    GTEST_ASSERT_EQ(ss.getString(), "abcdefg@");
+}
+
+///////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
