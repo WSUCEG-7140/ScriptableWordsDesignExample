@@ -1,6 +1,6 @@
 # Design
 
-This design documents how the Scriptable-Words project implements the following @ref Requirements.
+This design documents how the ScriptableWords project implements the following @ref Requirements.
 
 @section Project Project Overview
 
