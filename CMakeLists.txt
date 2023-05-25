@@ -12,8 +12,9 @@ set(CMAKE_CXX_FLAGS "-g -O0 -std=c++11 -stdlib=libc++ -U__STRICT_ANSI__ -fsaniti
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 ###############################################################################
-project(memoryoperations) 
+project(ScriptableWordsDesignExample) 
 
+include_directories(model) 
 include_directories(googletest/include) # this is so we can #include <gtest/gtest.h>
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
