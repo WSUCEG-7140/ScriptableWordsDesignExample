@@ -17,8 +17,8 @@ namespace Model {
         /// @imp @ref R1_0 Storage for a string
         std::string m_string {};
 
-        /// @imp @ref R1_0
-        /// @return const refrence to teh stored string
+        /// @imp @ref R4_0
+        /// @return reference to the stored string
         std::string& _getString() { return m_string; }
 
     public:
