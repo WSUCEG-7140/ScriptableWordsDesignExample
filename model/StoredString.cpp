@@ -1,20 +1,17 @@
 #include "StoredString.hpp"
 
-///////////////////////////////////////////////////////////////////////////////
-/// @imp @ref R1_0 it is necessary to execute the ...
-Pet* MemoryOperations::memmove(
-    Pet* destination_p, const Pet* source_p, size_t count)
+/// \imp \ref R3_0 This is a Factory Method that must be overridden in subclasses
+WSU::Model::StoredString::command_p_t
+WSU::Model::StoredString::makeCommandWithName(
+    std::string name, p_t storedString_p, std::string args)
 {
-    if (destination_p > source_p) {
-        for (int32_t i = count - 1; i >= 0; --i) {
-            destination_p[i] = source_p[i];
-        }
-    } else {
-        Pet* current_p = destination_p;
-        const Pet* sourceEnd_p = source_p + count;
-        while (source_p < sourceEnd_p) {
-            *current_p++ = *source_p++;
+    StoredString::command_p_t result { nullptr };
+    auto factoryIt = getNameToFactoryMap().find(name);
+    if (getNameToFactoryMap().end() != factoryIt) {
+        auto factory = factoryIt->second;
+        if (nullptr != factory) {
+            result = factory(storedString_p, args);
         }
     }
-    return destination_p;
+    return result;
 }

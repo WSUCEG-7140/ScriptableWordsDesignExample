@@ -20,6 +20,19 @@ TEST(R1_0, moreThanZeroCharacters)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R3_0
+TEST(R3_0, scriptInsertCharacter)
+{
+    std::shared_ptr<WSU::Model::StoredString> ss_p {
+        new WSU::Model::StoredString { "Hello, World!" }
+    };
+    auto command = WSU::Model::StoredString::makeCommandWithName(
+        "insertCharacterAt", ss_p, "# 0");
+    command->run();
+    GTEST_ASSERT_EQ(ss_p->getString(), "#Hello, World!");
+}
+
+///////////////////////////////////////////////////////////////////////////////
 /// \test @ref R4_0
 TEST(R4_0, insertCharactersAtIndex0DoesNotRemoveAnything)
 {
