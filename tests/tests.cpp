@@ -28,7 +28,9 @@ TEST(R3_0, scriptInsertCharacter)
     };
     auto command = WSU::Model::StoredString::makeCommandWithName(
         "insertCharacterAt", ss_p, "# 0");
-    command->run();
+    if (nullptr != command) {
+        command->run();
+    }
     GTEST_ASSERT_EQ(ss_p->getString(), "#Hello, World!");
 }
 

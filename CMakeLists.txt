@@ -29,8 +29,8 @@ FetchContent_MakeAvailable(googletest)
 add_executable(tests) 
 target_include_directories(tests PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 file(GLOB ALL_CXX_SOURCE_FILES
-    ${PROJECT_SOURCE_DIR}/src/*.c*
-    ${PROJECT_SOURCE_DIR}/include/*.h
+    ${PROJECT_SOURCE_DIR}/model/*.c*
+    ${PROJECT_SOURCE_DIR}/model/*.h
     ${PROJECT_SOURCE_DIR}/tests/*.c*
     ${PROJECT_SOURCE_DIR}/tests/*.h*
 )
