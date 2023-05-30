@@ -15,6 +15,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(ScriptableWordsDesignExample) 
 
 include_directories(model) 
+include_directories(include) 
 include_directories(googletest/include) # this is so we can #include <gtest/gtest.h>
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
