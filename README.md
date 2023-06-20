@@ -1,9 +1,9 @@
 # ScriptableWordsDesignExample
-An example of Software Design via an Agile Process
+This repository contains an example of Software Design via an Agile Process.
 
 __As a User, I wand a scriptable text editor so that repetitive editing tasks may be automated and save User time.__
 
-This Repository helps to demonstrate 
+This Repository helps to demonstrate the following:
 
 - Agile uses of GitHub Projects, 
 - Issues, 
@@ -18,4 +18,3 @@ This Repository helps to demonstrate
 - Test Driven Development
 - Automated Documentation Generation
 - Mechanism for storing Design in Code
- 
