@@ -10,8 +10,7 @@ namespace Model {
     Command::FactoryInstaller::arguments_t Command::FactoryInstaller::parse(
         const std::string& args)
     {
-        Command::FactoryInstaller::arguments_t result;
-        return json::parse(args);
+        return Command::FactoryInstaller::arguments_t { args };
     }
 
 } // namespace Model

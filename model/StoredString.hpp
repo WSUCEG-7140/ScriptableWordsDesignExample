@@ -44,7 +44,7 @@ namespace Model {
         typedef typename WSU::Model::Command::p_t command_p_t;
 
         /// Type for Factory Methods. Having a standard type simplifies use of [Factory Methods](https://en.wikipedia.org/wiki/Factory_method_pattern) because the caller need not know any details (like special arguments) about the object(s) created by the Factory Method.
-        typedef std::function<command_p_t(p_t storedString_p, std::string args)>
+        typedef std::function<command_p_t(p_t storedString_p, json args)>
             commandFactory_t;
 
         typedef std::unordered_map<std::string, StoredString::commandFactory_t>
@@ -86,6 +86,51 @@ namespace Model {
         void insertCharacterAtIndex(char c, uint32_t index)
         {
             _getString().insert(index, 1, c);
+        }
+
+        /// \imp \ref R3_0 This class provides a concrete implementation of the Command design patter in order to insert a character at an index ina string.
+        class InsertCharacterAtCommand : public Command {
+        private:
+            json m_args;
+
+        public:
+            InsertCharacterAtCommand(
+                StoredString::p_t storedString_p, json args)
+                : Command(storedString_p)
+            {
+                m_args = args;
+            }
+            /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via
+            /// a script, undo, or redo an operation, it is necessary to "run" the
+            /// operation.
+            virtual void run()
+            {
+                getStoredString()->insertCharacterAtIndex(
+                    m_args["char"].template get<std::string>()[0],
+                    m_args["index"].template get<uint32_t>());
+            }
+
+            /// \imp \ref Rx_0 In order to be able to undo a command, the reciprocal of the command is needed.
+            /// \imp \ref Rx_2 In order to redo an undo command, the reciprocal of the command executed as part of undo is needed.
+            virtual p_t makeReciprocalCommand() { return nullptr; }
+
+            /// \imp \ref R3_0 In order to create a script of commands, it is necessary to have string representations of the commands
+            /// \anchor DR3_6 \dreq DR3_6 A script will consist of a sequence of commands identified by their string representations
+            /// anchor DR3_7  \dreq DR3_7 String representations are human readable
+            virtual std::string getStringRepresentation()
+            {
+                return "Insert Character At";
+            }
+        };
+
+        static void registerDefaultCommands()
+        {
+            StoredString::registerCommandFactoryWithName(
+                [](p_t storedString_p, json args) {
+                    return command_p_t(
+                        new InsertCharacterAtCommand { storedString_p, args });
+                },
+                "insertCharacterAt");
         }
     };
 

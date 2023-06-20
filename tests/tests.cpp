@@ -24,6 +24,7 @@ TEST(R1_0, moreThanZeroCharacters)
 /// \test @ref R3_0
 TEST(R3_0, scriptInsertCharacter)
 {
+    WSU::Model::StoredString::registerDefaultCommands();
     std::shared_ptr<WSU::Model::StoredString> ss_p {
         new WSU::Model::StoredString { "Hello, World!" }
     };
