@@ -1,3 +1,4 @@
+#include "Command.hpp"
 #include "StoredString.hpp"
 #include <gtest/gtest.h>
 #include <iostream>
@@ -27,7 +28,7 @@ TEST(R3_0, scriptInsertCharacter)
         new WSU::Model::StoredString { "Hello, World!" }
     };
     auto command = WSU::Model::StoredString::makeCommandWithName(
-        "insertCharacterAt", ss_p, "# 0");
+        "insertCharacterAt", ss_p, R"({"char": "#","at": 0})"_json);
     if (nullptr != command) {
         command->run();
     }

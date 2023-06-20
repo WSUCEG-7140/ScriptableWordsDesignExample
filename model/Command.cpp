@@ -1,8 +1,8 @@
 #include "Command.hpp"
-#include "json.hpp"
+//#include "json.hpp"
 #include <sstream>
 #include <vector>
-using json = nlohmann::json;
+//using json = nlohmann::json;
 
 namespace WSU {
 namespace Model {
@@ -11,16 +11,7 @@ namespace Model {
         const std::string& args)
     {
         Command::FactoryInstaller::arguments_t result;
-        std::string err;
-        //result = json11::Json::parse(args, err);
-
-        json ex1 = json::parse(R"(
-  {
-    "pi": 3.141,
-    "happy": true
-  }
-)");
-        return result;
+        return json::parse(args);
     }
 
 } // namespace Model

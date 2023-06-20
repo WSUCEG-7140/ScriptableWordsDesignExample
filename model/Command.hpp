@@ -1,8 +1,10 @@
 #ifndef Command_hpp
 #define Command_hpp
 
+#include "json.hpp"
 #include <functional>
 #include <memory>
+using json = nlohmann::json;
 
 namespace WSU {
 namespace Model {
@@ -27,15 +29,26 @@ namespace Model {
         /// \anchor DR3_3 \dreq DR3_3 The Factory Design Pattern provides a mechanism to create instances of various concrete Command subclasses without the users of the [Factory](https://en.wikipedia.org/wiki/Factory_method_pattern) needing to know about the specific concrete classes i.e. decouple instance creation from specific classes.
         class FactoryInstaller {
         protected:
-            typedef std::string arguments_t;
+            typedef json arguments_t;
 
-            /// Commands encapsulate the information needed to run the command at a later time. This method  must be implemented in all subclasses of those class to encapsulate (that is store) needed information.
-            /// \param args \imp \ref R3_0 A script needs to be human readable. That implies the arguments to a command are human readable too. The args parameter is intended to contain a human readable string of command arguments such as the argument that may be present in a script. \dreq DR3_8 Scripts need to be human readable. JSON is used to encode args because JSON is human readable, standardized, and well known.
+            /// Commands encapsulate the information needed to run the command
+            /// at a later time. This method  must be implemented in all
+            /// subclasses of those class to encapsulate (that is store) needed
+            /// information.
+            /// \param args \imp \ref R3_0 A script needs to be human readable.
+            /// That implies the arguments to a command are human readable too.
+            /// The args parameter is intended to contain a human readable
+            /// string of command arguments such as the argument that may be
+            /// present in a script. \dreq DR3_8 Scripts need to be human
+            /// readable. JSON is used to encode args because JSON is human
+            /// readable, standardized, and well known.
             /// \return true iff args are successful parsed and encapsulated. Return false otherwise.
             static arguments_t parse(const std::string& args);
         };
 
-        /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 To do execute commads via a script, undo, or redo an operation, it is necessary to "run" the operation.
+        /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via
+        /// a script, undo, or redo an operation, it is necessary to "run" the
+        /// operation.
         virtual void run() = 0;
 
         /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the Command Design Pattern particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
