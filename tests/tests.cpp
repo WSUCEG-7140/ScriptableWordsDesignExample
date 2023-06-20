@@ -28,11 +28,11 @@ TEST(R3_0, scriptInsertCharacter)
     std::shared_ptr<WSU::Model::StoredString> ss_p {
         new WSU::Model::StoredString { "Hello, World!" }
     };
-    auto command = WSU::Model::StoredString::makeCommandWithName(
-        "insertCharacterAt", ss_p, R"({"char": "#","at": 0})"_json);
-    if (nullptr != command) {
-        command->run();
-    }
+    // auto command = WSU::Model::StoredString::makeCommandWithName(
+    //     "insertCharacterAt", ss_p, R"({"char": "#","at": 0})"_json);
+    // if (nullptr != command) {
+    //     command->run();
+    // }
     GTEST_ASSERT_EQ(ss_p->getString(), "#Hello, World!");
 }
 
