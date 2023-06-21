@@ -71,12 +71,12 @@ namespace Model {
             virtual void run() = 0;
 
             /// \imp \ref Rx_0 In order to be able to undo a command, the reciprocal of the command is needed. \imp \ref Rx_2 In order to redo an undo command, the reciprocal of the command executed as part of undo is needed.
-            virtual command_p_t makeReciprocalCommand() = 0;
+            //virtual command_p_t makeReciprocalCommand() = 0;
 
             /// \imp \ref R3_0 In order to create a script of commands, it is necessary to have string representations of the commands
             /// \anchor DR3_6 \dreq DR3_6 A script will consist of a sequence of commands identified by their string representations
             /// anchor DR3_7  \dreq DR3_7 String representations are human readable
-            virtual std::string getStringRepresentation() = 0;
+            //virtual std::string getStringRepresentation() = 0;
 
             /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the Command Design Pattern particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
             /// \anchor DR_1_0 \dreq DR_1_0: Any implementation of a Design Pattern should incorporate related language idioms as a matter of courtesy for other practitioners of the language.

@@ -19,13 +19,11 @@ namespace Model {
             getArgs()["at"].get<uint32_t>());
     }
 
-    /// \imp \ref Rx_0 In order to be able to undo a command, the reciprocal of the command is needed.
-    /// \imp \ref Rx_2 In order to redo an undo command, the reciprocal of the command executed as part of undo is needed.
-    StoredString::Command::command_p_t
-    InsertCharacterAtCommand::makeReciprocalCommand()
-    {
-        return nullptr;
-    }
+    // StoredString::Command::command_p_t
+    // InsertCharacterAtCommand::makeReciprocalCommand()
+    // {
+    //     return nullptr;
+    // }
 
 } // namespace Model
 } // namespace WSU
