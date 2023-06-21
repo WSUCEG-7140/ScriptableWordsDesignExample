@@ -5,16 +5,11 @@
 [       OK ] R1_0.zeroCharacters (0 ms)
 [ RUN      ] R1_0.moreThanZeroCharacters
 [       OK ] R1_0.moreThanZeroCharacters (0 ms)
-[----------] 2 tests from R1_0 (1 ms total)
+[----------] 2 tests from R1_0 (0 ms total)
 
 [----------] 1 test from R3_0
 [ RUN      ] R3_0.scriptInsertCharacter
-/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/tests.cpp:32: Failure
-Expected equality of these values:
-  ss_p->getString()
-    Which is: "Hello, World!"
-  "#Hello, World!"
-[  FAILED  ] R3_0.scriptInsertCharacter (0 ms)
+[       OK ] R3_0.scriptInsertCharacter (0 ms)
 [----------] 1 test from R3_0 (0 ms total)
 
 [----------] 4 tests from R4_0
@@ -30,8 +25,4 @@ Expected equality of these values:
 
 [----------] Global test environment tear-down
 [==========] 7 tests from 3 test suites ran. (1 ms total)
-[  PASSED  ] 6 tests.
-[  FAILED  ] 1 test, listed below:
-[  FAILED  ] R3_0.scriptInsertCharacter
-
- 1 FAILED TEST
+[  PASSED  ] 7 tests.
