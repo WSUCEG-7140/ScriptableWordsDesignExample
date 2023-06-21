@@ -1,7 +1,6 @@
 #ifndef WSUWord_hpp
 #define WSUWord_hpp
 
-//#include "Command.hpp"
 #include "json.hpp"
 #include <functional>
 #include <memory>
@@ -92,6 +91,13 @@ namespace Model {
             ///\args name : The name of a Command Factory
             static void registerFactoryWithName(
                 factory_t factory, std::string name);
+
+            /// @brief  \imp \ref R3_0 As a side effect of construction, each instance of this class registers a Factory for creating Commands
+            class FactoryInstaller {
+            public:
+                FactoryInstaller(const std::string& name,
+                    StoredString::Command::factory_t factory);
+            };
         };
 
     private:
@@ -134,63 +140,7 @@ namespace Model {
         ///\arg name : The name of a Command
         static Command::command_p_t makeCommandWithName(
             std::string name, p_t storedString_p, const json& args);
-
-        class FactoryInstaller {
-        public:
-            FactoryInstaller(
-                const std::string& name, Command::factory_t factory)
-            {
-                Command::registerFactoryWithName(factory, name);
-            }
-        };
     };
-
-    /// \imp \ref R3_0 This class provides a concrete implementation of the Command design patter in order to insert a character at an index ina string.
-    class InsertCharacterAtCommand : public StoredString::Command {
-    public:
-        InsertCharacterAtCommand(StoredString::p_t storedString_p, json args)
-            : StoredString::Command(storedString_p, args)
-        {
-            // Intentionally empty
-        }
-
-        /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via
-        /// a script, undo, or redo an operation, it is necessary to "run" the
-        /// operation.
-        virtual void run()
-        {
-            getStoredString()->insertCharacterAtIndex(
-                getArgs()["char"].get<std::string>()[0],
-                getArgs()["at"].get<uint32_t>());
-        }
-
-        /// \imp \ref Rx_0 In order to be able to undo a command, the reciprocal of the command is needed.
-        /// \imp \ref Rx_2 In order to redo an undo command, the reciprocal of the command executed as part of undo is needed.
-        virtual command_p_t makeReciprocalCommand() { return nullptr; }
-
-        /// \imp \ref R3_0 In order to create a script of commands, it is necessary to have string representations of the commands
-        /// \anchor DR3_6 \dreq DR3_6 A script will consist of a sequence of commands identified by their string representations
-        /// anchor DR3_7  \dreq DR3_7 String representations are human readable
-        virtual std::string getStringRepresentation()
-        {
-            return "Insert Character At";
-        }
-    };
-
-    class FactoryInstaller {
-    public:
-        FactoryInstaller(
-            const std::string& name, StoredString::Command::factory_t factory)
-        {
-            StoredString::Command::registerFactoryWithName(factory, name);
-        }
-    };
-
-    static FactoryInstaller s_insertCharacterAt { "insertCharacterAt",
-        [](StoredString::p_t storedString_p, json args) {
-            return StoredString::Command::command_p_t(
-                new InsertCharacterAtCommand { storedString_p, args });
-        } };
 
 } // namespace Model
 } // namespace WSU
