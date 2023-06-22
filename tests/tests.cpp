@@ -24,15 +24,18 @@ TEST(R1_0, moreThanZeroCharacters)
 /// \test @ref R3_0
 TEST(R3_0, scriptInsertCharacter)
 {
+    std::string script { "{\"command\":\"insertCharacterAt\", \"args\": "
+                         "{\"char\": \"#\",\"at\": 1}}" };
+    auto scriptJSON = json::parse(script);
     std::shared_ptr<WSU::Model::StoredString> ss_p {
         new WSU::Model::StoredString { "Hello, World!" }
     };
     auto command = WSU::Model::StoredString::makeCommandWithName(
-        "insertCharacterAt", ss_p, R"({"char": "#","at": 0})"_json);
+        scriptJSON["command"], ss_p, scriptJSON["args"]);
     if (nullptr != command) {
         (*command)();
     }
-    GTEST_ASSERT_EQ(ss_p->getString(), "#Hello, World!");
+    GTEST_ASSERT_EQ(ss_p->getString(), "H#ello, World!");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
