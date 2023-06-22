@@ -9,8 +9,8 @@
 
 [----------] 1 test from R3_0
 [ RUN      ] R3_0.scriptInsertCharacter
-[       OK ] R3_0.scriptInsertCharacter (1 ms)
-[----------] 1 test from R3_0 (1 ms total)
+[       OK ] R3_0.scriptInsertCharacter (0 ms)
+[----------] 1 test from R3_0 (0 ms total)
 
 [----------] 4 tests from R4_0
 [ RUN      ] R4_0.insertCharactersAtIndex0DoesNotRemoveAnything
