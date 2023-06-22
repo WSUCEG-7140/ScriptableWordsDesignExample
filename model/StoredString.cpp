@@ -1,20 +1,50 @@
 #include "StoredString.hpp"
+#include <iostream>
 
-///////////////////////////////////////////////////////////////////////////////
-/// @imp @ref R1_0 it is necessary to execute the ...
-Pet* MemoryOperations::memmove(
-    Pet* destination_p, const Pet* source_p, size_t count)
-{
-    if (destination_p > source_p) {
-        for (int32_t i = count - 1; i >= 0; --i) {
-            destination_p[i] = source_p[i];
-        }
-    } else {
-        Pet* current_p = destination_p;
-        const Pet* sourceEnd_p = source_p + count;
-        while (source_p < sourceEnd_p) {
-            *current_p++ = *source_p++;
-        }
+namespace WSU {
+namespace Model {
+
+    StoredString::Command::factoryMap_t&
+    StoredString::Command::_getNameToFactoryMap()
+    {
+        static StoredString::Command::factoryMap_t map {};
+
+        return map;
     }
-    return destination_p;
-}
+
+    const StoredString::Command::factoryMap_t&
+    StoredString::Command::getNameToFactoryMap()
+    {
+        return StoredString::Command::_getNameToFactoryMap();
+    }
+
+    void StoredString::Command::registerFactoryWithName(
+        StoredString::Command::factory_t factory, std::string name)
+    {
+        StoredString::Command::_getNameToFactoryMap()[name] = factory;
+    }
+
+    /// \imp \ref R3_0 This is a Factory Method that must be overridden in subclasses
+    StoredString::Command::command_p_t StoredString::makeCommandWithName(
+        std::string name, StoredString::p_t storedString_p, const json& args)
+    {
+        StoredString::Command::command_p_t result { nullptr };
+        auto factoryIt
+            = StoredString::Command::getNameToFactoryMap().find(name);
+        if (StoredString::Command::getNameToFactoryMap().end() != factoryIt) {
+            auto factory = factoryIt->second;
+            if (nullptr != factory) {
+                result = factory(storedString_p, args);
+            }
+        }
+        return result;
+    }
+
+    StoredString::Command::FactoryInstaller::FactoryInstaller(
+        const std::string& name, StoredString::Command::factory_t factory)
+    {
+        StoredString::Command::registerFactoryWithName(factory, name);
+    }
+
+} // namespace Model
+} // namespace WSU

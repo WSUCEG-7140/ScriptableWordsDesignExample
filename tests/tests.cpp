@@ -1,3 +1,4 @@
+#include "InsertCharacterAtCommand.hpp"
 #include "StoredString.hpp"
 #include <gtest/gtest.h>
 #include <iostream>
@@ -17,6 +18,24 @@ TEST(R1_0, moreThanZeroCharacters)
 {
     WSU::Model::StoredString ss { "Hello, World!" };
     GTEST_ASSERT_EQ(13, ss.getString().size());
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R3_0
+TEST(R3_0, scriptInsertCharacter)
+{
+    std::string script { "{\"command\":\"insertCharacterAt\", \"args\": "
+                         "{\"char\": \"#\",\"at\": 1}}" };
+    auto scriptJSON = json::parse(script);
+    std::shared_ptr<WSU::Model::StoredString> ss_p {
+        new WSU::Model::StoredString { "Hello, World!" }
+    };
+    auto command = WSU::Model::StoredString::makeCommandWithName(
+        scriptJSON["command"], ss_p, scriptJSON["args"]);
+    if (nullptr != command) {
+        (*command)();
+    }
+    GTEST_ASSERT_EQ(ss_p->getString(), "H#ello, World!");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
