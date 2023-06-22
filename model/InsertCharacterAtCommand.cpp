@@ -19,11 +19,5 @@ namespace Model {
             getArgs()["at"].get<uint32_t>());
     }
 
-    // StoredString::Command::command_p_t
-    // InsertCharacterAtCommand::makeReciprocalCommand()
-    // {
-    //     return nullptr;
-    // }
-
 } // namespace Model
 } // namespace WSU
