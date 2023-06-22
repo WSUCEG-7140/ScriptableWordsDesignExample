@@ -1,22 +1,20 @@
-#include "InsertCharacterAtCommand.hpp"
+#include "AppendCharacterCommand.hpp"
 
 namespace WSU {
 namespace Model {
 
     StoredString::Command::FactoryInstaller
-        InsertCharacterAtCommand::s_insertCharacterAtFactory {
-            "insertCharacterAt",
+        AppendCharacterCommand::s_appendCharacterFactory { "appendCharacter",
             [](StoredString::p_t storedString_p, json args) {
                 return StoredString::Command::command_p_t(
-                    new InsertCharacterAtCommand { storedString_p, args });
-            }
-        };
+                    new AppendCharacterCommand { storedString_p, args });
+            } };
 
-    void InsertCharacterAtCommand::run()
+    void AppendCharacterCommand::run()
     {
         getStoredString()->insertCharacterAtIndex(
             getArgs()["char"].get<std::string>()[0],
-            getArgs()["at"].get<uint32_t>());
+            getStoredString()->getString().size());
     }
 
 } // namespace Model
