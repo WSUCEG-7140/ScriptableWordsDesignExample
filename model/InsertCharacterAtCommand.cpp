@@ -3,6 +3,7 @@
 namespace WSU {
 namespace Model {
 
+    /// \imp \ref R3_0
     StoredString::Command::FactoryInstaller
         InsertCharacterAtCommand::s_insertCharacterAtFactory {
             "insertCharacterAt",
@@ -12,6 +13,7 @@ namespace Model {
             }
         };
 
+    /// \imp \ref R3_0
     void InsertCharacterAtCommand::run()
     {
         getStoredString()->insertCharacterAtIndex(
