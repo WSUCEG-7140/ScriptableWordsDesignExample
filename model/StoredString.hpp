@@ -134,6 +134,13 @@ namespace Model {
             _getString().insert(index, 1, c);
         }
 
+        /// @imp @ref R7_0
+        /// @param index
+        void removeCharacterAtIndex(uint32_t index)
+        {
+            _getString().erase(index, 1);
+        }
+
         /// \imp \ref R3_1 Create a Command instance using the named Factory, stored string, and arguments. The name is a human readable identifier that may be used in scripts. The arguments are [JSON](https://www.json.org/json-en.html) formatted key/value pairs where each key is a string argument name and each value is a JSON value type.
         /// \ref R3_1_1 As an implementation detail, JSON is chosen as a human readable format.
         ///
