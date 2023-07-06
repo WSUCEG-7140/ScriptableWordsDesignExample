@@ -7,7 +7,7 @@
 #include <string>
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \test @ref R23_0
+/// \test @ref R3_0
 TEST(R23_0, scriptProcessingOneCommand)
 {
     std::shared_ptr<WSU::Model::StoredString> ss_p {
@@ -23,7 +23,7 @@ TEST(R23_0, scriptProcessingOneCommand)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \test @ref R23_0
+/// \test @ref R3_0
 TEST(R23_0, scriptProcessingMultipleCommands)
 {
     std::shared_ptr<WSU::Model::StoredString> ss_p {
@@ -42,4 +42,19 @@ TEST(R23_0, scriptProcessingMultipleCommands)
     GTEST_ASSERT_EQ(0, result);
     GTEST_ASSERT_EQ(5, ss_p->getString().size());
     GTEST_ASSERT_EQ(ss_p->getString(), "a!bcd");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R3_0
+TEST(R23_0, scriptFailedCommand)
+{
+    std::shared_ptr<WSU::Model::StoredString> ss_p {
+        new WSU::Model::StoredString { "" }
+    };
+    std::string script { "[{\"command\":\"?!/!@#$\", \"args\": "
+                         "{\"char\": \"#\"}}]" };
+    int32_t result { WSU::Model::ScriptInterpreter::interpret(ss_p, script) };
+
+    GTEST_ASSERT_EQ(-1, result);
+    GTEST_ASSERT_EQ(0, ss_p->getString().size());
 }
