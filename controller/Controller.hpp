@@ -4,6 +4,7 @@
 #ifndef Controller_hpp
 #define Controller_hpp
 
+#include "ScriptInterpreter.hpp"
 #include "StoredString.hpp"
 #include "UndoRedoManager.hpp"
 #include <string>
@@ -29,6 +30,11 @@ namespace Controller {
         }
 
         void undo() { m_undoRedoManager.undo(); }
+
+        void runCommandWithUndo(WSU::Model::StoredString::command_p_t command_p)
+        {
+            m_undoRedoManager.runCommandWithUndo(command_p);
+        }
     };
 
 } // namespace Controller

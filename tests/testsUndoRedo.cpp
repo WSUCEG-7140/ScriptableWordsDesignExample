@@ -29,8 +29,9 @@ TEST(R12_0, undoNotEmptyStack)
 
     std::string script { "[{\"command\":\"appendCharacter\", \"args\": "
                          "{\"char\": \"#\"}}]" };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(
-        storedString_p, script) };
+    auto command = WSU::Model::StoredString::makeCommandWithName(
+        "appendCharacter", storedString_p, json::parse("{\"char\": \"#\"}"));
+    controller.runCommandWithUndo(command);
 
     GTEST_ASSERT_EQ(storedString_p->getString(), "#");
 

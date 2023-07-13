@@ -84,6 +84,12 @@ namespace Model {
             /// \anchor DR_1_0 \dreq DR_1_0: Any implementation of a Design Pattern should incorporate related language idioms as a matter of courtesy for other practitioners of the language.
             void operator()() { run(); }
 
+            /// @brief This function returns a command that performs the reciprocal operation of teh Command instance. The reciprocal Command is a Command that undoes whatever this Command does.
+            ///
+            /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
+            /// @return The reciprocal Command
+            virtual command_p_t getReciprocalCommand() = 0;
+
             /// \imp \ref R3_1 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This function returns a map from name to a Factory that creates instances of the command with that name. See [Factory Design Pattern](https://www.oodesign.com/factory-pattern.html)
             static const factoryMap_t& getNameToFactoryMap();
 
@@ -111,6 +117,8 @@ namespace Model {
         std::string& _getString() { return m_string; }
 
     public:
+        typedef typename Command::command_p_t command_p_t;
+
         /// Default Constructor: @imp @ref R1_0 Initially store zero characters
         StoredString()
         {
