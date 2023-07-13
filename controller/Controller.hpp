@@ -5,6 +5,7 @@
 #define Controller_hpp
 
 #include "StoredString.hpp"
+#include "UndoRedoManager.hpp"
 #include <string>
 
 namespace WSU {
@@ -15,13 +16,19 @@ namespace Controller {
     class Controller {
     private:
         /// An instance of the Model
-        Model::StoredString m_storedString {};
+        WSU::Model::StoredString::p_t m_storedString_p {
+            new WSU::Model::StoredString { "" }
+        };
+
+        UndoRedoManager m_undoRedoManager {};
 
     public:
-        const std::string& getCurrentStoredStringValue()
+        WSU::Model::StoredString::p_t getCurrentStoredString_p()
         {
-            return m_storedString.getString();
+            return m_storedString_p;
         }
+
+        void undo() { m_undoRedoManager.undo(); }
     };
 
 } // namespace Controller

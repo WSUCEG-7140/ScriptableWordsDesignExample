@@ -16,6 +16,8 @@
 
 @anchor R7_0 R7_0 [Issue#7](https://github.com/WSUCEG-7140/ScriptableWordsDesignExample/issues/7).
 
+@anchor R12_0 R12_0 [Issue#12](https://github.com/WSUCEG-7140/ScriptableWordsDesignExample/issues/12).
+
 @anchor R21_0 R21_0 [Issue#21](https://github.com/WSUCEG-7140/ScriptableWordsDesignExample/issues/21)
 
 @anchor R23_0 R23_0 [Issue#23](https://github.com/WSUCEG-7140/ScriptableWordsDesignExample/issues/23).
