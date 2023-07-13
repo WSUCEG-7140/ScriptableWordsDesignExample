@@ -1,4 +1,5 @@
 #include "AppendCharacterCommand.hpp"
+#include "Controller.hpp"
 #include "InsertCharacterAtCommand.hpp"
 #include "StoredString.hpp"
 #include <gtest/gtest.h>
@@ -139,6 +140,15 @@ TEST(R8_0, removeCharacterAtBegin)
     WSU::Model::StoredString ss { "abcdefg" };
     ss.removeCharacterAtIndex(0);
     GTEST_ASSERT_EQ(ss.getString(), "bcdefg");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///
+TEST(Controller, Controller)
+{
+    WSU::Controller::Controller controller {};
+
+    GTEST_ASSERT_EQ("", controller.getCurrentStoredStringValue());
 }
 
 ///////////////////////////////////////////////////////////////////////////////

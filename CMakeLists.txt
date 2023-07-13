@@ -15,6 +15,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(ScriptableWordsDesignExample) 
 
 include_directories(model) 
+include_directories(controller) 
 include_directories(include) 
 include_directories(googletest/include) # this is so we can #include <gtest/gtest.h>
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -31,7 +32,9 @@ add_executable(tests)
 target_include_directories(tests PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 file(GLOB ALL_CXX_SOURCE_FILES
     ${PROJECT_SOURCE_DIR}/model/*.c*
-    ${PROJECT_SOURCE_DIR}/model/*.h
+    ${PROJECT_SOURCE_DIR}/model/*.h*
+    ${PROJECT_SOURCE_DIR}/controller/*.c*
+    ${PROJECT_SOURCE_DIR}/controller/*.h*
     ${PROJECT_SOURCE_DIR}/tests/*.c*
     ${PROJECT_SOURCE_DIR}/tests/*.h*
 )
