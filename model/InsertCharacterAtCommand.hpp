@@ -31,7 +31,15 @@ namespace Model {
         ///
         /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
         /// @return The reciprocal Command
-        virtual command_p_t getReciprocalCommand() { return nullptr; }
+        virtual command_p_t getReciprocalCommand()
+        {
+            auto args = json {};
+            args["at"] = getArgs()["at"];
+
+            auto reciprocalCommand_p = StoredString::makeCommandWithName(
+                "removeCharacterAt", getStoredString(), args);
+            return reciprocalCommand_p;
+        }
 
         /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.
         static StoredString::Command::FactoryInstaller

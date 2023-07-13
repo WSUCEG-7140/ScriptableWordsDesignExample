@@ -30,8 +30,8 @@ namespace Controller {
 
         void runCommandWithUndo(WSU::Model::StoredString::command_p_t command_p)
         {
-            command_p->run();
             m_undoStack.push_back(command_p->getReciprocalCommand());
+            command_p->run();
         }
     };
 

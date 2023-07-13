@@ -32,12 +32,12 @@ namespace Model {
         /// @return The reciprocal Command
         virtual command_p_t getReciprocalCommand()
         {
-            auto argsString { "{\"at\":"
-                + std::to_string(getStoredString()->getString().size() - 1)
-                + "}" };
-            std::cerr << "<" << argsString << ">\n";
-            auto args { json::parse(argsString) };
-            std::cerr << "<" << args.dump() << ">\n";
+            auto args = json {};
+
+            // This is called before append, so the last valid index after
+            // append will the the current size() instead of size() - 1.
+            args["at"] = getStoredString()->getString().size();
+
             auto reciprocalCommand_p = StoredString::makeCommandWithName(
                 "removeCharacterAt", getStoredString(), args);
             return reciprocalCommand_p;

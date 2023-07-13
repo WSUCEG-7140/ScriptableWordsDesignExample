@@ -31,7 +31,7 @@ namespace Model {
         StoredString::Command::command_p_t result { nullptr };
         auto factoryIt
             = StoredString::Command::getNameToFactoryMap().find(name);
-        std::cerr << name << "\n";
+
         if (StoredString::Command::getNameToFactoryMap().end() != factoryIt) {
             auto factory = factoryIt->second;
             if (nullptr != factory) {
