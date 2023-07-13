@@ -86,6 +86,7 @@ TEST(R4_0, insertCharactersAtIndex0DoesNotRemoveAnything)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \test @ref R4_0
+/// \test @ref R5_0
 TEST(R4_0, insertCharactersAtIndex1DoesNotRemoveAnything)
 {
     WSU::Model::StoredString ss { "Hello, World!" };
@@ -95,6 +96,7 @@ TEST(R4_0, insertCharactersAtIndex1DoesNotRemoveAnything)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \test @ref R4_0
+/// \test @ref R5_0
 TEST(R4_0, insertCharactersBeginOfEmpty)
 {
     WSU::Model::StoredString ss { "" };
@@ -104,11 +106,39 @@ TEST(R4_0, insertCharactersBeginOfEmpty)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \test @ref R4_0
+/// \test @ref R5_0
 TEST(R4_0, insertCharacterAtEnd)
 {
     WSU::Model::StoredString ss { "abcdefg" };
     ss.insertCharacterAtIndex('@', 7);
     GTEST_ASSERT_EQ(ss.getString(), "abcdefg@");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R7_0
+TEST(R7_0, removeCharacterAtEnd)
+{
+    WSU::Model::StoredString ss { "abcdefg" };
+    ss.removeCharacterAtIndex(6);
+    GTEST_ASSERT_EQ(ss.getString(), "abcdef");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R8_0
+TEST(R8_0, removeCharacterInMiddle)
+{
+    WSU::Model::StoredString ss { "abcdefg" };
+    ss.removeCharacterAtIndex(3);
+    GTEST_ASSERT_EQ(ss.getString(), "abcefg");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R8_0
+TEST(R8_0, removeCharacterAtBegin)
+{
+    WSU::Model::StoredString ss { "abcdefg" };
+    ss.removeCharacterAtIndex(0);
+    GTEST_ASSERT_EQ(ss.getString(), "bcdefg");
 }
 
 ///////////////////////////////////////////////////////////////////////////////

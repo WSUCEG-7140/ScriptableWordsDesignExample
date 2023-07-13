@@ -8,7 +8,7 @@
 #include <unordered_map>
 using json = nlohmann::json;
 
-/// This entire project is part of a demonstration for Wright State University (WSU) CS-7140 "Advanced Software Eng." Spring 2021.
+/// This entire project is part of a demonstration for Wright State University (WSU) CS-7140 "Advanced Software Eng." Summer 2023.
 namespace WSU {
 
 /// Model Subsystem
@@ -22,7 +22,9 @@ namespace Model {
         /// @brief Type used for pointers to StoredString instances
         typedef std::shared_ptr<StoredString> p_t;
 
-        /// This is an abstract base class for Commands that operate upon Stored String instances.
+        /// This is an abstract base class for Commands that operate upon Stored String instances. Scripts are composed of a sequence of Commands.
+        /// @imp @ref R21_0
+        /// @imp @ref R23_0
         class Command {
         public:
             /// @brief Type used for pointers to Command instances
@@ -40,7 +42,7 @@ namespace Model {
             /// @brief Pointer to string ti be modified by command
             StoredString::p_t m_storedString_p;
 
-            /// @brief JSON encode arguments to teh command
+            /// @brief JSON encode arguments to the command
             json m_args;
 
         protected:
@@ -49,7 +51,7 @@ namespace Model {
             { /* Intentionally Empty */
             }
 
-            /// \imp \ref R3_1 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This function returns a map from name to a Factory that creates instances of the command with that name. See [Factory Design Pattern](https://www.oodesign.com/factory-pattern.html)
+            /// \imp \ref R23_0 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This function returns a map from name to a Factory that creates instances of the command with that name. See [Factory Design Pattern](https://www.oodesign.com/factory-pattern.html)
             static factoryMap_t& _getNameToFactoryMap();
 
         public:
@@ -104,7 +106,7 @@ namespace Model {
         /// @imp @ref R1_0 Storage for a string
         std::string m_string {};
 
-        /// @imp @ref R4_0
+        /// @imp @ref R1_0
         /// @return reference to the stored string
         std::string& _getString() { return m_string; }
 
@@ -123,7 +125,7 @@ namespace Model {
         }
 
         /// @imp @ref R1_0
-        /// @return const refrence to teh stored string
+        /// @return const reference to the stored string
         const std::string& getString() { return _getString(); }
 
         /// @imp @ref R4_0
