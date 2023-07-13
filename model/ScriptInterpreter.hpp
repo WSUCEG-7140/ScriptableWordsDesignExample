@@ -18,7 +18,7 @@ namespace Model {
     public:
         /// @imp @ref R23_0
         /// @brief Parses and executes the scriptString as a JSON array containing JSON objects. Each top level object is a script language command with associated arguments.
-        /// @param ss_p : Pointer to stored string to be modified by teh script
+        /// @param ss_p : Pointer to stored string to be modified by the script
         /// @param scriptString : A string containing a valid JSON representation of a script
         /// @return 0 upon successful interpretation. -1 is returned to indicate error.
         static int32_t interpret(

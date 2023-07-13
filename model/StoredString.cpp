@@ -24,7 +24,7 @@ namespace Model {
         StoredString::Command::_getNameToFactoryMap()[name] = factory;
     }
 
-    /// \imp \ref R3_0 This is a Factory Method that must be overridden in subclasses
+    /// \imp \ref R23_0 This is a Factory Method that must be overridden in subclasses. The factory method enables scripts that identify commands by human readable string name to lookup and create instances of the named commands.
     StoredString::Command::command_p_t StoredString::makeCommandWithName(
         std::string name, StoredString::p_t storedString_p, const json& args)
     {

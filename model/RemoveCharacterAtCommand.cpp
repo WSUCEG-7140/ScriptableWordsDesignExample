@@ -3,7 +3,7 @@
 namespace WSU {
 namespace Model {
 
-    /// \imp \ref R7_0
+    /// \imp \ref R21_0 The script command can be looked up by a name that may occur in a script.
     StoredString::Command::FactoryInstaller
         RemoveCharacterAtCommand::s_removeCharacterAtFactory {
             "removeCharacterAt",
@@ -13,7 +13,7 @@ namespace Model {
             }
         };
 
-    /// \imp \ref R7_0
+    /// \imp \ref R6_0 The script command can be run.
     void RemoveCharacterAtCommand::run()
     {
         getStoredString()->removeCharacterAtIndex(

@@ -7,7 +7,9 @@
 #include <string>
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \test @ref R3_0
+/// \test @ref R23_0
+/// \test @ref R21_0
+/// \test @ref R2_0
 TEST(R23_0, scriptProcessingOneCommand)
 {
     std::shared_ptr<WSU::Model::StoredString> ss_p {
@@ -23,6 +25,9 @@ TEST(R23_0, scriptProcessingOneCommand)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R23_0
+/// \test @ref R21_0
+/// \test @ref R2_0
 /// \test @ref R3_0
 TEST(R23_0, scriptProcessingMultipleCommands)
 {
@@ -45,7 +50,7 @@ TEST(R23_0, scriptProcessingMultipleCommands)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \test @ref R3_0
+/// \test @ref R23_0
 TEST(R23_0, scriptFailedCommand)
 {
     std::shared_ptr<WSU::Model::StoredString> ss_p {
@@ -60,8 +65,11 @@ TEST(R23_0, scriptFailedCommand)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R23_0
 /// \test @ref R3_0
-TEST(R23_0, scriptProcessingRemoveAt0Command)
+/// \test @ref R2_0
+/// \test @ref R6_0
+TEST(R6_0, scriptProcessingRemoveAt0Command)
 {
     std::shared_ptr<WSU::Model::StoredString> ss_p {
         new WSU::Model::StoredString { "" }
@@ -82,8 +90,9 @@ TEST(R23_0, scriptProcessingRemoveAt0Command)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \test @ref R3_0
-TEST(R23_0, scriptProcessingRemoveAtEndCommand)
+/// \test @ref R23_0
+/// \test @ref R6_0
+TEST(R6_0, scriptProcessingRemoveAtEndCommand)
 {
     std::shared_ptr<WSU::Model::StoredString> ss_p {
         new WSU::Model::StoredString { "" }
@@ -104,8 +113,9 @@ TEST(R23_0, scriptProcessingRemoveAtEndCommand)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \test @ref R3_0
-TEST(R23_0, scriptProcessingRemoveAtMiddleCommand)
+/// \test @ref R6_0
+/// \test @ref R23_0
+TEST(R6_0, scriptProcessingRemoveAtMiddleCommand)
 {
     std::shared_ptr<WSU::Model::StoredString> ss_p {
         new WSU::Model::StoredString { "" }
