@@ -18,3 +18,5 @@ This Repository helps to demonstrate the following:
 - Test Driven Development
 - Automated Documentation Generation
 - Mechanism for storing Design in Code
+- Self documenting code
+  
