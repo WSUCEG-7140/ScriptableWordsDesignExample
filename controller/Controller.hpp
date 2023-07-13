@@ -4,7 +4,9 @@
 #ifndef Controller_hpp
 #define Controller_hpp
 
+#include "ScriptInterpreter.hpp"
 #include "StoredString.hpp"
+#include "UndoRedoManager.hpp"
 #include <string>
 
 namespace WSU {
@@ -15,12 +17,23 @@ namespace Controller {
     class Controller {
     private:
         /// An instance of the Model
-        Model::StoredString m_storedString {};
+        WSU::Model::StoredString::p_t m_storedString_p {
+            new WSU::Model::StoredString { "" }
+        };
+
+        UndoRedoManager m_undoRedoManager {};
 
     public:
-        const std::string& getCurrentStoredStringValue()
+        WSU::Model::StoredString::p_t getCurrentStoredString_p()
         {
-            return m_storedString.getString();
+            return m_storedString_p;
+        }
+
+        void undo() { m_undoRedoManager.undo(); }
+
+        void runCommandWithUndo(WSU::Model::StoredString::command_p_t command_p)
+        {
+            m_undoRedoManager.runCommandWithUndo(command_p);
         }
     };
 

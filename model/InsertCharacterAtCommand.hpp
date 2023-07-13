@@ -27,6 +27,20 @@ namespace Model {
         /// operation.
         virtual void run();
 
+        /// @brief This function returns a command that performs the reciprocal operation of teh Command instance. The reciprocal Command is a Command that undoes whatever this Command does.
+        ///
+        /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
+        /// @return The reciprocal Command
+        virtual command_p_t getReciprocalCommand()
+        {
+            auto args = json {};
+            args["at"] = getArgs()["at"];
+
+            auto reciprocalCommand_p = StoredString::makeCommandWithName(
+                "removeCharacterAt", getStoredString(), args);
+            return reciprocalCommand_p;
+        }
+
         /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.
         static StoredString::Command::FactoryInstaller
             s_insertCharacterAtFactory;

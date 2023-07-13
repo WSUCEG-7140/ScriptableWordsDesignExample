@@ -148,7 +148,7 @@ TEST(Controller, Controller)
 {
     WSU::Controller::Controller controller {};
 
-    GTEST_ASSERT_EQ("", controller.getCurrentStoredStringValue());
+    GTEST_ASSERT_EQ("", controller.getCurrentStoredString_p()->getString());
 }
 
 ///////////////////////////////////////////////////////////////////////////////
