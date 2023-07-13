@@ -1,0 +1,1574 @@
+<!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/AppendCharacterCommand.cpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;AppendCharacterCommand.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::FactoryInstaller</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        AppendCharacterCommand::s_appendCharacterFactory { &quot;appendCharacter&quot;,</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>            [](StoredString::p_t storedString_p, json args) {</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>                return StoredString::Command::command_p_t(</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>                    new AppendCharacterCommand { storedString_p, args });</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>            } };</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    void AppendCharacterCommand::run()</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>        getStoredString()-&gt;insertCharacterAtIndex(</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>            getArgs()[&quot;char&quot;].get&lt;std::string&gt;()[0],</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>            getStoredString()-&gt;getString().size());</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/AppendCharacterCommand.hpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#ifndef AppendCharacter_hpp</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#define AppendCharacter_hpp</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;StoredString.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;json.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;functional&gt;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>using json = nlohmann::json;</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R2_0 This class provides a concrete implementation of the Command design pattern in order to append a character to a string.</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    class AppendCharacterCommand : public StoredString::Command {</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    public:</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        AppendCharacterCommand(</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            StoredString::p_t storedString_p, const json&amp; args)</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            : StoredString::Command(storedString_p, args)</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            // Intentionally empty</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>19</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// \imp \ref R2_0</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        virtual void run();</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        static StoredString::Command::FactoryInstaller s_appendCharacterFactory;</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    };</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#endif /* AppendCharacter_hpp */</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/InsertCharacterAtCommand.cpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;InsertCharacterAtCommand.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R21_0 The script command can be looked up by a name that may occur in a script.</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::FactoryInstaller</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        InsertCharacterAtCommand::s_insertCharacterAtFactory {</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            &quot;insertCharacterAt&quot;,</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>            [](StoredString::p_t storedString_p, json args) {</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>                return StoredString::Command::command_p_t(</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>                    new InsertCharacterAtCommand { storedString_p, args });</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>            }</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        };</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R3_0 The script command can be run.</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    void InsertCharacterAtCommand::run()</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>        getStoredString()-&gt;insertCharacterAtIndex(</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>            getArgs()[&quot;char&quot;].get&lt;std::string&gt;()[0],</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>            getArgs()[&quot;at&quot;].get&lt;uint32_t&gt;());</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/InsertCharacterAtCommand.hpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#ifndef InsertCharacterAtCommand_hpp</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#define InsertCharacterAtCommand_hpp</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;StoredString.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;json.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;functional&gt;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>using json = nlohmann::json;</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R3_0 This class provides a concrete implementation of the Command design pattern in order to insert a character at an index in a string.</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    class InsertCharacterAtCommand : public StoredString::Command {</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    public:</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        InsertCharacterAtCommand(</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            StoredString::p_t storedString_p, const json&amp; args)</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            : StoredString::Command(storedString_p, args)</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            // Intentionally empty</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// a script, undo, or redo an operation, it is necessary to &quot;run&quot; the</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// operation.</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        virtual void run();</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        static StoredString::Command::FactoryInstaller</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            s_insertCharacterAtFactory;</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    };</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#endif /* InsertCharacterAtCommand_hpp */</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/RemoveCharacterAtCommand.cpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;RemoveCharacterAtCommand.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R21_0 The script command can be looked up by a name that may occur in a script.</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::FactoryInstaller</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        RemoveCharacterAtCommand::s_removeCharacterAtFactory {</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            &quot;removeCharacterAt&quot;,</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>            [](StoredString::p_t storedString_p, json args) {</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>                return StoredString::Command::command_p_t(</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>                    new RemoveCharacterAtCommand { storedString_p, args });</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>            }</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        };</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R6_0 The script command can be run.</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    void RemoveCharacterAtCommand::run()</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>        getStoredString()-&gt;removeCharacterAtIndex(</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>            getArgs()[&quot;at&quot;].get&lt;uint32_t&gt;());</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/RemoveCharacterAtCommand.hpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#ifndef RemoveCharacterAtCommand_hpp</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#define RemoveCharacterAtCommand_hpp</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;StoredString.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;json.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;functional&gt;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>using json = nlohmann::json;</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R6_0 This class provides a concrete implementation of the Command design pattern in order to remove a character at an index in a string.</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    class RemoveCharacterAtCommand : public StoredString::Command {</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    public:</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        RemoveCharacterAtCommand(</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            StoredString::p_t storedString_p, const json&amp; args)</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            : StoredString::Command(storedString_p, args)</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            // Intentionally empty</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// a script, undo, or redo an operation, it is necessary to &quot;run&quot; the</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// operation.</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        virtual void run();</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        static StoredString::Command::FactoryInstaller</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            s_removeCharacterAtFactory;</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    };</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#endif /* RemoveCharacterAtCommand_hpp */</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/ScriptInterpreter.hpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#ifndef ScriptInterpreter_hpp</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#define ScriptInterpreter_hpp</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;json.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;functional&gt;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;unordered_map&gt;</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>using json = nlohmann::json;</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// @imp @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// @brief This class provides a mechanism to interpret a &quot;script&quot; that consists of one or more strings that describe modifications to be performed to the stored string.</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    class ScriptInterpreter {</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    public:</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @brief Parses and executes the scriptString as a JSON array containing JSON objects. Each top level object is a script language command with associated arguments.</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @param ss_p : Pointer to stored string to be modified by the script</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @param scriptString : A string containing a valid JSON representation of a script</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @return 0 upon successful interpretation. -1 is returned to indicate error.</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        static int32_t interpret(</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            std::shared_ptr&lt;StoredString&gt; ss_p, const std::string&amp; scriptString)</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>            int32_t result { 0 };</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>            auto scriptJSON = json::parse(scriptString);</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='covered-line'><pre>22</pre></td><td class='code'><pre>            for (auto statement : scriptJSON) {</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='covered-line'><pre>22</pre></td><td class='code'><pre>                auto command = WSU::Model::StoredString::makeCommandWithName(</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='covered-line'><pre>22</pre></td><td class='code'><pre>                    statement[&quot;command&quot;], ss_p, statement[&quot;args&quot;]);</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='covered-line'><pre>22</pre></td><td class='code'><pre>                if (nullptr != command) {</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='covered-line'><pre>21</pre></td><td class='code'><pre>                    (*command)();</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='covered-line'><pre>21</pre></td><td class='code'><pre>                } else {</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>                    result = -1;</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>                }</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='covered-line'><pre>22</pre></td><td class='code'><pre>            }</pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>            return result;</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    };</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#endif // ScriptInterpreter_hpp</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/StoredString.cpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;StoredString.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;iostream&gt;</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::factoryMap_t&amp;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::_getNameToFactoryMap()</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='covered-line'><pre>53</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='covered-line'><pre>53</pre></td><td class='code'><pre>        static StoredString::Command::factoryMap_t map {};</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='covered-line'><pre>53</pre></td><td class='code'><pre>        return map;</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>53</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    const StoredString::Command::factoryMap_t&amp;</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::getNameToFactoryMap()</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='covered-line'><pre>50</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>50</pre></td><td class='code'><pre>        return StoredString::Command::_getNameToFactoryMap();</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='covered-line'><pre>50</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    void StoredString::Command::registerFactoryWithName(</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        StoredString::Command::factory_t factory, std::string name)</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>        StoredString::Command::_getNameToFactoryMap()[name] = factory;</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// \imp \ref R23_0 This is a Factory Method that must be overridden in subclasses. The factory method enables scripts that identify commands by human readable string name to lookup and create instances of the named commands.</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::command_p_t StoredString::makeCommandWithName(</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        std::string name, StoredString::p_t storedString_p, const json&amp; args)</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>        StoredString::Command::command_p_t result { nullptr };</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>        auto factoryIt</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>            = StoredString::Command::getNameToFactoryMap().find(name);</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>        if (StoredString::Command::getNameToFactoryMap().end() != factoryIt) {</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            auto factory = factoryIt-&gt;second;</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            if (nullptr != factory) {</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>                result = factory(storedString_p, args);</pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            }</pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>        return result;</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    StoredString::Command::FactoryInstaller::FactoryInstaller(</pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        const std::string&amp; name, StoredString::Command::factory_t factory)</pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    {</pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>        StoredString::Command::registerFactoryWithName(factory, name);</pre></td></tr><tr><td class='line-number'><a name='L47' href='#L47'><pre>47</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L48' href='#L48'><pre>48</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L49' href='#L49'><pre>49</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L50' href='#L50'><pre>50</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/model/StoredString.hpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#ifndef WSUWord_hpp</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#define WSUWord_hpp</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;json.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;functional&gt;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;unordered_map&gt;</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>using json = nlohmann::json;</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// This entire project is part of a demonstration for Wright State University (WSU) CS-7140 &quot;Advanced Software Eng.&quot; Summer 2023.</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace WSU {</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// Model Subsystem</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// This Module contains components that are part of the @ref Model within the overall @ref ModelViewPresenter Design.</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Model {</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    /// @imp @ref R1_0 This class implements the core of the Model subsystem with methods to manipulate a stored string.</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    class StoredString {</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    public:</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @brief Type used for pointers to StoredString instances</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        typedef std::shared_ptr&lt;StoredString&gt; p_t;</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// This is an abstract base class for Commands that operate upon Stored String instances. Scripts are composed of a sequence of Commands.</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R21_0</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        class Command {</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        public:</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// @brief Type used for pointers to Command instances</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            typedef std::shared_ptr&lt;Command&gt; command_p_t;</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// Type for Factory Methods. Having a standard type simplifies use of [Factory Methods](https://en.wikipedia.org/wiki/Factory_method_pattern) because the caller need not know any details (like special arguments) about the object(s) created by the Factory Method.</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            typedef std::function&lt;Command::command_p_t(</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                p_t storedString_p, json args)&gt;</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                factory_t;</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// @brief This is the type used to store name to Factory associations</pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            typedef std::unordered_map&lt;std::string, factory_t&gt; factoryMap_t;</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        private:</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// @brief Pointer to string ti be modified by command</pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            StoredString::p_t m_storedString_p;</pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// @brief JSON encode arguments to the command</pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            json m_args;</pre></td></tr><tr><td class='line-number'><a name='L47' href='#L47'><pre>47</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L48' href='#L48'><pre>48</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        protected:</pre></td></tr><tr><td class='line-number'><a name='L49' href='#L49'><pre>49</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            ///\anchor DR3_2 \dreq DR3_2 In C++, all classes that have one or more virtual method are required to have a virtual destructor.</pre></td></tr><tr><td class='line-number'><a name='L50' href='#L50'><pre>50</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            virtual ~Command()</pre></td></tr><tr><td class='line-number'><a name='L51' href='#L51'><pre>51</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            { /* Intentionally Empty */</pre></td></tr><tr><td class='line-number'><a name='L52' href='#L52'><pre>52</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            }</pre></td></tr><tr><td class='line-number'><a name='L53' href='#L53'><pre>53</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L54' href='#L54'><pre>54</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \imp \ref R23_0 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This function returns a map from name to a Factory that creates instances of the command with that name. See [Factory Design Pattern](https://www.oodesign.com/factory-pattern.html)</pre></td></tr><tr><td class='line-number'><a name='L55' href='#L55'><pre>55</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            static factoryMap_t&amp; _getNameToFactoryMap();</pre></td></tr><tr><td class='line-number'><a name='L56' href='#L56'><pre>56</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L57' href='#L57'><pre>57</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        public:</pre></td></tr><tr><td class='line-number'><a name='L58' href='#L58'><pre>58</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            Command(StoredString::p_t storedString_p, const json&amp; args)</pre></td></tr><tr><td class='line-number'><a name='L59' href='#L59'><pre>59</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                : m_storedString_p(storedString_p)</pre></td></tr><tr><td class='line-number'><a name='L60' href='#L60'><pre>60</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                , m_args(args)</pre></td></tr><tr><td class='line-number'><a name='L61' href='#L61'><pre>61</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            {</pre></td></tr><tr><td class='line-number'><a name='L62' href='#L62'><pre>62</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                // Intentionally empty</pre></td></tr><tr><td class='line-number'><a name='L63' href='#L63'><pre>63</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            }</pre></td></tr><tr><td class='line-number'><a name='L64' href='#L64'><pre>64</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L65' href='#L65'><pre>65</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            StoredString::p_t getStoredString() const</pre></td></tr><tr><td class='line-number'><a name='L66' href='#L66'><pre>66</pre></a></td><td class='covered-line'><pre>43</pre></td><td class='code'><pre>            {</pre></td></tr><tr><td class='line-number'><a name='L67' href='#L67'><pre>67</pre></a></td><td class='covered-line'><pre>43</pre></td><td class='code'><pre>                return m_storedString_p;</pre></td></tr><tr><td class='line-number'><a name='L68' href='#L68'><pre>68</pre></a></td><td class='covered-line'><pre>43</pre></td><td class='code'><pre>            }</pre></td></tr><tr><td class='line-number'><a name='L69' href='#L69'><pre>69</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L70' href='#L70'><pre>70</pre></a></td><td class='covered-line'><pre>26</pre></td><td class='code'><pre>            const json&amp; getArgs() const { return m_args; }</pre></td></tr><tr><td class='line-number'><a name='L71' href='#L71'><pre>71</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L72' href='#L72'><pre>72</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via a script, undo, or redo an operation, it is necessary to &quot;run&quot; the operation.</pre></td></tr><tr><td class='line-number'><a name='L73' href='#L73'><pre>73</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            virtual void run() = 0;</pre></td></tr><tr><td class='line-number'><a name='L74' href='#L74'><pre>74</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L75' href='#L75'><pre>75</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \imp \ref Rx_0 In order to be able to undo a command, the reciprocal of the command is needed. \imp \ref Rx_2 In order to redo an undo command, the reciprocal of the command executed as part of undo is needed.</pre></td></tr><tr><td class='line-number'><a name='L76' href='#L76'><pre>76</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            //virtual command_p_t makeReciprocalCommand() = 0;</pre></td></tr><tr><td class='line-number'><a name='L77' href='#L77'><pre>77</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L78' href='#L78'><pre>78</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \imp \ref R3_0 In order to create a script of commands, it is necessary to have string representations of the commands</pre></td></tr><tr><td class='line-number'><a name='L79' href='#L79'><pre>79</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \anchor DR3_6 \dreq DR3_6 A script will consist of a sequence of commands identified by their string representations</pre></td></tr><tr><td class='line-number'><a name='L80' href='#L80'><pre>80</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// anchor DR3_7  \dreq DR3_7 String representations are human readable</pre></td></tr><tr><td class='line-number'><a name='L81' href='#L81'><pre>81</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            //virtual std::string getStringRepresentation() = 0;</pre></td></tr><tr><td class='line-number'><a name='L82' href='#L82'><pre>82</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L83' href='#L83'><pre>83</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the Command Design Pattern particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.</pre></td></tr><tr><td class='line-number'><a name='L84' href='#L84'><pre>84</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \anchor DR_1_0 \dreq DR_1_0: Any implementation of a Design Pattern should incorporate related language idioms as a matter of courtesy for other practitioners of the language.</pre></td></tr><tr><td class='line-number'><a name='L85' href='#L85'><pre>85</pre></a></td><td class='covered-line'><pre>24</pre></td><td class='code'><pre>            void operator()() { run(); }</pre></td></tr><tr><td class='line-number'><a name='L86' href='#L86'><pre>86</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L87' href='#L87'><pre>87</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \imp \ref R3_1 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This function returns a map from name to a Factory that creates instances of the command with that name. See [Factory Design Pattern](https://www.oodesign.com/factory-pattern.html)</pre></td></tr><tr><td class='line-number'><a name='L88' href='#L88'><pre>88</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            static const factoryMap_t&amp; getNameToFactoryMap();</pre></td></tr><tr><td class='line-number'><a name='L89' href='#L89'><pre>89</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L90' href='#L90'><pre>90</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// \imp \ref R3_1 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This method provides a mechanism to associate a command Factory with the name of the command. A command Factory Method is an implantation of the [Factory Method Design Pattern](https://en.wikipedia.org/wiki/Factory_method_pattern).</pre></td></tr><tr><td class='line-number'><a name='L91' href='#L91'><pre>91</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            ///</pre></td></tr><tr><td class='line-number'><a name='L92' href='#L92'><pre>92</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            ///\args factory : The Factory to be associated with the name, name.</pre></td></tr><tr><td class='line-number'><a name='L93' href='#L93'><pre>93</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            ///\args name : The name of a Command Factory</pre></td></tr><tr><td class='line-number'><a name='L94' href='#L94'><pre>94</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            static void registerFactoryWithName(</pre></td></tr><tr><td class='line-number'><a name='L95' href='#L95'><pre>95</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                factory_t factory, std::string name);</pre></td></tr><tr><td class='line-number'><a name='L96' href='#L96'><pre>96</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L97' href='#L97'><pre>97</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            /// @brief  \imp \ref R3_0 As a side effect of construction, each instance of this class registers a Factory for creating Commands</pre></td></tr><tr><td class='line-number'><a name='L98' href='#L98'><pre>98</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            class FactoryInstaller {</pre></td></tr><tr><td class='line-number'><a name='L99' href='#L99'><pre>99</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            public:</pre></td></tr><tr><td class='line-number'><a name='L100' href='#L100'><pre>100</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                FactoryInstaller(const std::string&amp; name,</pre></td></tr><tr><td class='line-number'><a name='L101' href='#L101'><pre>101</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>                    StoredString::Command::factory_t factory);</pre></td></tr><tr><td class='line-number'><a name='L102' href='#L102'><pre>102</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            };</pre></td></tr><tr><td class='line-number'><a name='L103' href='#L103'><pre>103</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        };</pre></td></tr><tr><td class='line-number'><a name='L104' href='#L104'><pre>104</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L105' href='#L105'><pre>105</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    private:</pre></td></tr><tr><td class='line-number'><a name='L106' href='#L106'><pre>106</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R1_0 Storage for a string</pre></td></tr><tr><td class='line-number'><a name='L107' href='#L107'><pre>107</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        std::string m_string {};</pre></td></tr><tr><td class='line-number'><a name='L108' href='#L108'><pre>108</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L109' href='#L109'><pre>109</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R1_0</pre></td></tr><tr><td class='line-number'><a name='L110' href='#L110'><pre>110</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @return reference to the stored string</pre></td></tr><tr><td class='line-number'><a name='L111' href='#L111'><pre>111</pre></a></td><td class='covered-line'><pre>73</pre></td><td class='code'><pre>        std::string&amp; _getString() { return m_string; }</pre></td></tr><tr><td class='line-number'><a name='L112' href='#L112'><pre>112</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L113' href='#L113'><pre>113</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    public:</pre></td></tr><tr><td class='line-number'><a name='L114' href='#L114'><pre>114</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// Default Constructor: @imp @ref R1_0 Initially store zero characters</pre></td></tr><tr><td class='line-number'><a name='L115' href='#L115'><pre>115</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        StoredString()</pre></td></tr><tr><td class='line-number'><a name='L116' href='#L116'><pre>116</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L117' href='#L117'><pre>117</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            // Intentionally empty</pre></td></tr><tr><td class='line-number'><a name='L118' href='#L118'><pre>118</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L119' href='#L119'><pre>119</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L120' href='#L120'><pre>120</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R1_0 Initially store zero or more characters</pre></td></tr><tr><td class='line-number'><a name='L121' href='#L121'><pre>121</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        StoredString(const std::string&amp; contents)</pre></td></tr><tr><td class='line-number'><a name='L122' href='#L122'><pre>122</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            : m_string(contents)</pre></td></tr><tr><td class='line-number'><a name='L123' href='#L123'><pre>123</pre></a></td><td class='covered-line'><pre>17</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L124' href='#L124'><pre>124</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            // Intentionally empty</pre></td></tr><tr><td class='line-number'><a name='L125' href='#L125'><pre>125</pre></a></td><td class='covered-line'><pre>17</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L126' href='#L126'><pre>126</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L127' href='#L127'><pre>127</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R1_0</pre></td></tr><tr><td class='line-number'><a name='L128' href='#L128'><pre>128</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @return const reference to the stored string</pre></td></tr><tr><td class='line-number'><a name='L129' href='#L129'><pre>129</pre></a></td><td class='covered-line'><pre>42</pre></td><td class='code'><pre>        const std::string&amp; getString() { return _getString(); }</pre></td></tr><tr><td class='line-number'><a name='L130' href='#L130'><pre>130</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L131' href='#L131'><pre>131</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R4_0</pre></td></tr><tr><td class='line-number'><a name='L132' href='#L132'><pre>132</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @param c</pre></td></tr><tr><td class='line-number'><a name='L133' href='#L133'><pre>133</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @param index</pre></td></tr><tr><td class='line-number'><a name='L134' href='#L134'><pre>134</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        void insertCharacterAtIndex(char c, uint32_t index)</pre></td></tr><tr><td class='line-number'><a name='L135' href='#L135'><pre>135</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L136' href='#L136'><pre>136</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>            _getString().insert(index, 1, c);</pre></td></tr><tr><td class='line-number'><a name='L137' href='#L137'><pre>137</pre></a></td><td class='covered-line'><pre>25</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L138' href='#L138'><pre>138</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L139' href='#L139'><pre>139</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @imp @ref R7_0</pre></td></tr><tr><td class='line-number'><a name='L140' href='#L140'><pre>140</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// @param index</pre></td></tr><tr><td class='line-number'><a name='L141' href='#L141'><pre>141</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        void removeCharacterAtIndex(uint32_t index)</pre></td></tr><tr><td class='line-number'><a name='L142' href='#L142'><pre>142</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>        {</pre></td></tr><tr><td class='line-number'><a name='L143' href='#L143'><pre>143</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>            _getString().erase(index, 1);</pre></td></tr><tr><td class='line-number'><a name='L144' href='#L144'><pre>144</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L145' href='#L145'><pre>145</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L146' href='#L146'><pre>146</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// \imp \ref R3_1 Create a Command instance using the named Factory, stored string, and arguments. The name is a human readable identifier that may be used in scripts. The arguments are [JSON](https://www.json.org/json-en.html) formatted key/value pairs where each key is a string argument name and each value is a JSON value type.</pre></td></tr><tr><td class='line-number'><a name='L147' href='#L147'><pre>147</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        /// \ref R3_1_1 As an implementation detail, JSON is chosen as a human readable format.</pre></td></tr><tr><td class='line-number'><a name='L148' href='#L148'><pre>148</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        ///</pre></td></tr><tr><td class='line-number'><a name='L149' href='#L149'><pre>149</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        ///\arg name : The name of a Command</pre></td></tr><tr><td class='line-number'><a name='L150' href='#L150'><pre>150</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>        static Command::command_p_t makeCommandWithName(</pre></td></tr><tr><td class='line-number'><a name='L151' href='#L151'><pre>151</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>            std::string name, p_t storedString_p, const json&amp; args);</pre></td></tr><tr><td class='line-number'><a name='L152' href='#L152'><pre>152</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    };</pre></td></tr><tr><td class='line-number'><a name='L153' href='#L153'><pre>153</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L154' href='#L154'><pre>154</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace Model</pre></td></tr><tr><td class='line-number'><a name='L155' href='#L155'><pre>155</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>} // namespace WSU</pre></td></tr><tr><td class='line-number'><a name='L156' href='#L156'><pre>156</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L157' href='#L157'><pre>157</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#endif /* WSUWord_hpp */</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/testScriptProcessing.cpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;AppendCharacterCommand.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;InsertCharacterAtCommand.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;ScriptInterpreter.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;StoredString.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;gtest/gtest.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;iostream&gt;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R21_0</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R2_0</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R23_0, scriptProcessingOneCommand) {</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{&quot;[{\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>                     &quot;{\&quot;char\&quot;: \&quot;#\&quot;}}]&quot;};</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  int32_t result{WSU::Model::ScriptInterpreter::interpret(ss_p, script)};</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(0, result);</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(1, ss_p-&gt;getString().size());</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;#&quot;);</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R21_0</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R2_0</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R3_0</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R23_0, scriptProcessingMultipleCommands) {</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;[{\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;a\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;b\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;c\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;d\&quot;}}, {\&quot;command\&quot;:\&quot;insertCharacterAt\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;!\&quot;, \&quot;at\&quot;:1}}]&quot;};</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  int32_t result{WSU::Model::ScriptInterpreter::interpret(ss_p, script)};</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(0, result);</pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(5, ss_p-&gt;getString().size());</pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;a!bcd&quot;);</pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L47' href='#L47'><pre>47</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L48' href='#L48'><pre>48</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L49' href='#L49'><pre>49</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R23_0, scriptFailedCommand) {</pre></td></tr><tr><td class='line-number'><a name='L50' href='#L50'><pre>50</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L51' href='#L51'><pre>51</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L52' href='#L52'><pre>52</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{&quot;[{\&quot;command\&quot;:\&quot;?!/!@#$\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L53' href='#L53'><pre>53</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>                     &quot;{\&quot;char\&quot;: \&quot;#\&quot;}}]&quot;};</pre></td></tr><tr><td class='line-number'><a name='L54' href='#L54'><pre>54</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  int32_t result{WSU::Model::ScriptInterpreter::interpret(ss_p, script)};</pre></td></tr><tr><td class='line-number'><a name='L55' href='#L55'><pre>55</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L56' href='#L56'><pre>56</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(-1, result);</pre></td></tr><tr><td class='line-number'><a name='L57' href='#L57'><pre>57</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(0, ss_p-&gt;getString().size());</pre></td></tr><tr><td class='line-number'><a name='L58' href='#L58'><pre>58</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L59' href='#L59'><pre>59</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L60' href='#L60'><pre>60</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L61' href='#L61'><pre>61</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L62' href='#L62'><pre>62</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R3_0</pre></td></tr><tr><td class='line-number'><a name='L63' href='#L63'><pre>63</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R2_0</pre></td></tr><tr><td class='line-number'><a name='L64' href='#L64'><pre>64</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R6_0</pre></td></tr><tr><td class='line-number'><a name='L65' href='#L65'><pre>65</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R6_0, scriptProcessingRemoveAt0Command) {</pre></td></tr><tr><td class='line-number'><a name='L66' href='#L66'><pre>66</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L67' href='#L67'><pre>67</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L68' href='#L68'><pre>68</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{</pre></td></tr><tr><td class='line-number'><a name='L69' href='#L69'><pre>69</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;[{\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L70' href='#L70'><pre>70</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;a\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L71' href='#L71'><pre>71</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;b\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L72' href='#L72'><pre>72</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;c\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L73' href='#L73'><pre>73</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;d\&quot;}}, {\&quot;command\&quot;:\&quot;removeCharacterAt\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L74' href='#L74'><pre>74</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;at\&quot;:0}}]&quot;};</pre></td></tr><tr><td class='line-number'><a name='L75' href='#L75'><pre>75</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  int32_t result{WSU::Model::ScriptInterpreter::interpret(ss_p, script)};</pre></td></tr><tr><td class='line-number'><a name='L76' href='#L76'><pre>76</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L77' href='#L77'><pre>77</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(0, result);</pre></td></tr><tr><td class='line-number'><a name='L78' href='#L78'><pre>78</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(3, ss_p-&gt;getString().size());</pre></td></tr><tr><td class='line-number'><a name='L79' href='#L79'><pre>79</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;bcd&quot;);</pre></td></tr><tr><td class='line-number'><a name='L80' href='#L80'><pre>80</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L81' href='#L81'><pre>81</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L82' href='#L82'><pre>82</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L83' href='#L83'><pre>83</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L84' href='#L84'><pre>84</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R6_0</pre></td></tr><tr><td class='line-number'><a name='L85' href='#L85'><pre>85</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R6_0, scriptProcessingRemoveAtEndCommand) {</pre></td></tr><tr><td class='line-number'><a name='L86' href='#L86'><pre>86</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L87' href='#L87'><pre>87</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L88' href='#L88'><pre>88</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{</pre></td></tr><tr><td class='line-number'><a name='L89' href='#L89'><pre>89</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;[{\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L90' href='#L90'><pre>90</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;a\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L91' href='#L91'><pre>91</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;b\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L92' href='#L92'><pre>92</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;c\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L93' href='#L93'><pre>93</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;d\&quot;}}, {\&quot;command\&quot;:\&quot;removeCharacterAt\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L94' href='#L94'><pre>94</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;at\&quot;:3}}]&quot;};</pre></td></tr><tr><td class='line-number'><a name='L95' href='#L95'><pre>95</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  int32_t result{WSU::Model::ScriptInterpreter::interpret(ss_p, script)};</pre></td></tr><tr><td class='line-number'><a name='L96' href='#L96'><pre>96</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L97' href='#L97'><pre>97</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(0, result);</pre></td></tr><tr><td class='line-number'><a name='L98' href='#L98'><pre>98</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(3, ss_p-&gt;getString().size());</pre></td></tr><tr><td class='line-number'><a name='L99' href='#L99'><pre>99</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;abc&quot;);</pre></td></tr><tr><td class='line-number'><a name='L100' href='#L100'><pre>100</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L101' href='#L101'><pre>101</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L102' href='#L102'><pre>102</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L103' href='#L103'><pre>103</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R6_0</pre></td></tr><tr><td class='line-number'><a name='L104' href='#L104'><pre>104</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R23_0</pre></td></tr><tr><td class='line-number'><a name='L105' href='#L105'><pre>105</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R6_0, scriptProcessingRemoveAtMiddleCommand) {</pre></td></tr><tr><td class='line-number'><a name='L106' href='#L106'><pre>106</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L107' href='#L107'><pre>107</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L108' href='#L108'><pre>108</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{</pre></td></tr><tr><td class='line-number'><a name='L109' href='#L109'><pre>109</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;[{\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L110' href='#L110'><pre>110</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;a\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L111' href='#L111'><pre>111</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;b\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L112' href='#L112'><pre>112</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;c\&quot;}}, {\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L113' href='#L113'><pre>113</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;char\&quot;: \&quot;d\&quot;}}, {\&quot;command\&quot;:\&quot;removeCharacterAt\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L114' href='#L114'><pre>114</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      &quot;{\&quot;at\&quot;:2}}]&quot;};</pre></td></tr><tr><td class='line-number'><a name='L115' href='#L115'><pre>115</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  int32_t result{WSU::Model::ScriptInterpreter::interpret(ss_p, script)};</pre></td></tr><tr><td class='line-number'><a name='L116' href='#L116'><pre>116</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L117' href='#L117'><pre>117</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(0, result);</pre></td></tr><tr><td class='line-number'><a name='L118' href='#L118'><pre>118</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(3, ss_p-&gt;getString().size());</pre></td></tr><tr><td class='line-number'><a name='L119' href='#L119'><pre>119</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;abd&quot;);</pre></td></tr><tr><td class='line-number'><a name='L120' href='#L120'><pre>120</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/ScriptableWordsDesignExample/ScriptableWordsDesignExample/tests/tests.cpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;AppendCharacterCommand.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;InsertCharacterAtCommand.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &quot;StoredString.hpp&quot;</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;gtest/gtest.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;iostream&gt;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R1_0</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R1_0, zeroCharacters) {</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{};</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(0, ss.getString().size());</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R1_0</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R1_0, moreThanZeroCharacters) {</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;Hello, World!&quot;};</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(13, ss.getString().size());</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R3_0</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R2_0, scriptAppendCharacter) {</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{&quot;{\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>                     &quot;{\&quot;char\&quot;: \&quot;#\&quot;}}&quot;};</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  auto scriptJSON = json::parse(script);</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;Hello, World!&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  auto command = WSU::Model::StoredString::makeCommandWithName(</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      scriptJSON[&quot;command&quot;], ss_p, scriptJSON[&quot;args&quot;]);</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  if (nullptr != command) {</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    (*command)();</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;Hello, World!#&quot;);</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R3_0</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R2_0, scriptAppendCharacterEmpty) {</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{&quot;{\&quot;command\&quot;:\&quot;appendCharacter\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>                     &quot;{\&quot;char\&quot;: \&quot;#\&quot;}}&quot;};</pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  auto scriptJSON = json::parse(script);</pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  auto command = WSU::Model::StoredString::makeCommandWithName(</pre></td></tr><tr><td class='line-number'><a name='L47' href='#L47'><pre>47</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      scriptJSON[&quot;command&quot;], ss_p, scriptJSON[&quot;args&quot;]);</pre></td></tr><tr><td class='line-number'><a name='L48' href='#L48'><pre>48</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  if (nullptr != command) {</pre></td></tr><tr><td class='line-number'><a name='L49' href='#L49'><pre>49</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    (*command)();</pre></td></tr><tr><td class='line-number'><a name='L50' href='#L50'><pre>50</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L51' href='#L51'><pre>51</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;#&quot;);</pre></td></tr><tr><td class='line-number'><a name='L52' href='#L52'><pre>52</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L53' href='#L53'><pre>53</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L54' href='#L54'><pre>54</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L55' href='#L55'><pre>55</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R3_0</pre></td></tr><tr><td class='line-number'><a name='L56' href='#L56'><pre>56</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R3_0, scriptInsertCharacter) {</pre></td></tr><tr><td class='line-number'><a name='L57' href='#L57'><pre>57</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::string script{&quot;{\&quot;command\&quot;:\&quot;insertCharacterAt\&quot;, \&quot;args\&quot;: &quot;</pre></td></tr><tr><td class='line-number'><a name='L58' href='#L58'><pre>58</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>                     &quot;{\&quot;char\&quot;: \&quot;#\&quot;,\&quot;at\&quot;: 1}}&quot;};</pre></td></tr><tr><td class='line-number'><a name='L59' href='#L59'><pre>59</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  auto scriptJSON = json::parse(script);</pre></td></tr><tr><td class='line-number'><a name='L60' href='#L60'><pre>60</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  std::shared_ptr&lt;WSU::Model::StoredString&gt; ss_p{</pre></td></tr><tr><td class='line-number'><a name='L61' href='#L61'><pre>61</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      new WSU::Model::StoredString{&quot;Hello, World!&quot;}};</pre></td></tr><tr><td class='line-number'><a name='L62' href='#L62'><pre>62</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  auto command = WSU::Model::StoredString::makeCommandWithName(</pre></td></tr><tr><td class='line-number'><a name='L63' href='#L63'><pre>63</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      scriptJSON[&quot;command&quot;], ss_p, scriptJSON[&quot;args&quot;]);</pre></td></tr><tr><td class='line-number'><a name='L64' href='#L64'><pre>64</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  if (nullptr != command) {</pre></td></tr><tr><td class='line-number'><a name='L65' href='#L65'><pre>65</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    (*command)();</pre></td></tr><tr><td class='line-number'><a name='L66' href='#L66'><pre>66</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L67' href='#L67'><pre>67</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss_p-&gt;getString(), &quot;H#ello, World!&quot;);</pre></td></tr><tr><td class='line-number'><a name='L68' href='#L68'><pre>68</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L69' href='#L69'><pre>69</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L70' href='#L70'><pre>70</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L71' href='#L71'><pre>71</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R4_0</pre></td></tr><tr><td class='line-number'><a name='L72' href='#L72'><pre>72</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R4_0, insertCharactersAtIndex0DoesNotRemoveAnything) {</pre></td></tr><tr><td class='line-number'><a name='L73' href='#L73'><pre>73</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;Hello, World!&quot;};</pre></td></tr><tr><td class='line-number'><a name='L74' href='#L74'><pre>74</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ss.insertCharacterAtIndex(&apos;@&apos;, 0);</pre></td></tr><tr><td class='line-number'><a name='L75' href='#L75'><pre>75</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss.getString(), &quot;@Hello, World!&quot;);</pre></td></tr><tr><td class='line-number'><a name='L76' href='#L76'><pre>76</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L77' href='#L77'><pre>77</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L78' href='#L78'><pre>78</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L79' href='#L79'><pre>79</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R4_0</pre></td></tr><tr><td class='line-number'><a name='L80' href='#L80'><pre>80</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R5_0</pre></td></tr><tr><td class='line-number'><a name='L81' href='#L81'><pre>81</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R4_0, insertCharactersAtIndex1DoesNotRemoveAnything) {</pre></td></tr><tr><td class='line-number'><a name='L82' href='#L82'><pre>82</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;Hello, World!&quot;};</pre></td></tr><tr><td class='line-number'><a name='L83' href='#L83'><pre>83</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ss.insertCharacterAtIndex(&apos;@&apos;, 1);</pre></td></tr><tr><td class='line-number'><a name='L84' href='#L84'><pre>84</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss.getString(), &quot;H@ello, World!&quot;);</pre></td></tr><tr><td class='line-number'><a name='L85' href='#L85'><pre>85</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L86' href='#L86'><pre>86</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L87' href='#L87'><pre>87</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L88' href='#L88'><pre>88</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R4_0</pre></td></tr><tr><td class='line-number'><a name='L89' href='#L89'><pre>89</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R5_0</pre></td></tr><tr><td class='line-number'><a name='L90' href='#L90'><pre>90</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R4_0, insertCharactersBeginOfEmpty) {</pre></td></tr><tr><td class='line-number'><a name='L91' href='#L91'><pre>91</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;&quot;};</pre></td></tr><tr><td class='line-number'><a name='L92' href='#L92'><pre>92</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ss.insertCharacterAtIndex(&apos;@&apos;, 0);</pre></td></tr><tr><td class='line-number'><a name='L93' href='#L93'><pre>93</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss.getString(), &quot;@&quot;);</pre></td></tr><tr><td class='line-number'><a name='L94' href='#L94'><pre>94</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L95' href='#L95'><pre>95</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L96' href='#L96'><pre>96</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L97' href='#L97'><pre>97</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R4_0</pre></td></tr><tr><td class='line-number'><a name='L98' href='#L98'><pre>98</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R5_0</pre></td></tr><tr><td class='line-number'><a name='L99' href='#L99'><pre>99</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R4_0, insertCharacterAtEnd) {</pre></td></tr><tr><td class='line-number'><a name='L100' href='#L100'><pre>100</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;abcdefg&quot;};</pre></td></tr><tr><td class='line-number'><a name='L101' href='#L101'><pre>101</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ss.insertCharacterAtIndex(&apos;@&apos;, 7);</pre></td></tr><tr><td class='line-number'><a name='L102' href='#L102'><pre>102</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss.getString(), &quot;abcdefg@&quot;);</pre></td></tr><tr><td class='line-number'><a name='L103' href='#L103'><pre>103</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L104' href='#L104'><pre>104</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L105' href='#L105'><pre>105</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L106' href='#L106'><pre>106</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R7_0</pre></td></tr><tr><td class='line-number'><a name='L107' href='#L107'><pre>107</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R7_0, removeCharacterAtEnd) {</pre></td></tr><tr><td class='line-number'><a name='L108' href='#L108'><pre>108</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;abcdefg&quot;};</pre></td></tr><tr><td class='line-number'><a name='L109' href='#L109'><pre>109</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ss.removeCharacterAtIndex(6);</pre></td></tr><tr><td class='line-number'><a name='L110' href='#L110'><pre>110</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss.getString(), &quot;abcdef&quot;);</pre></td></tr><tr><td class='line-number'><a name='L111' href='#L111'><pre>111</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L112' href='#L112'><pre>112</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L113' href='#L113'><pre>113</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L114' href='#L114'><pre>114</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R8_0</pre></td></tr><tr><td class='line-number'><a name='L115' href='#L115'><pre>115</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R8_0, removeCharacterInMiddle) {</pre></td></tr><tr><td class='line-number'><a name='L116' href='#L116'><pre>116</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;abcdefg&quot;};</pre></td></tr><tr><td class='line-number'><a name='L117' href='#L117'><pre>117</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ss.removeCharacterAtIndex(3);</pre></td></tr><tr><td class='line-number'><a name='L118' href='#L118'><pre>118</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss.getString(), &quot;abcefg&quot;);</pre></td></tr><tr><td class='line-number'><a name='L119' href='#L119'><pre>119</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L120' href='#L120'><pre>120</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L121' href='#L121'><pre>121</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L122' href='#L122'><pre>122</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>/// \test @ref R8_0</pre></td></tr><tr><td class='line-number'><a name='L123' href='#L123'><pre>123</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>TEST(R8_0, removeCharacterAtBegin) {</pre></td></tr><tr><td class='line-number'><a name='L124' href='#L124'><pre>124</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  WSU::Model::StoredString ss{&quot;abcdefg&quot;};</pre></td></tr><tr><td class='line-number'><a name='L125' href='#L125'><pre>125</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ss.removeCharacterAtIndex(0);</pre></td></tr><tr><td class='line-number'><a name='L126' href='#L126'><pre>126</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  GTEST_ASSERT_EQ(ss.getString(), &quot;bcdefg&quot;);</pre></td></tr><tr><td class='line-number'><a name='L127' href='#L127'><pre>127</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L128' href='#L128'><pre>128</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L129' href='#L129'><pre>129</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>///////////////////////////////////////////////////////////////////////////////</pre></td></tr><tr><td class='line-number'><a name='L130' href='#L130'><pre>130</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>int main(int argc, char *argv[]) {</pre></td></tr><tr><td class='line-number'><a name='L131' href='#L131'><pre>131</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  ::testing::InitGoogleTest(&amp;argc, argv);</pre></td></tr><tr><td class='line-number'><a name='L132' href='#L132'><pre>132</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  auto result = RUN_ALL_TESTS();</pre></td></tr><tr><td class='line-number'><a name='L133' href='#L133'><pre>133</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L134' href='#L134'><pre>134</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  exit(0);</pre></td></tr><tr><td class='line-number'><a name='L135' href='#L135'><pre>135</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  // There is no return statement because preceding exit() never returns</pre></td></tr><tr><td class='line-number'><a name='L136' href='#L136'><pre>136</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr></table></div></body></html>
