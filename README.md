@@ -18,9 +18,11 @@ This Repository helps to demonstrate the following:
 - Test Driven Development
 - Automated Documentation Generation
 - Mechanism for storing Design in Code
+- Self documenting code
 - S.O.L.I.D Design Principles:
   - @anchor Single_Responsibility Single Responsibility
   - @anchor Open_for_Extension_Closed_for_Modification Open for Extension Closed for Modification
   - @anchor Liskov_Substitution Liskov Substitution
   - @anchor Interface_Segregation Interface Segregation
   - @anchor Dependecy_Inversion Dependecy Inversion
+
