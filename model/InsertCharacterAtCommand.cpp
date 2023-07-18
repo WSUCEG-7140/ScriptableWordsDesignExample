@@ -3,12 +3,12 @@
 namespace WSU {
 namespace Model {
 
-    /// \imp \ref R21_0 The script command can be looked up by a name that may occur in a script.
-    StoredString::Command::FactoryInstaller
+    InsertCharacterAtCommand::base_t::FactoryInstaller
         InsertCharacterAtCommand::s_insertCharacterAtFactory {
             "insertCharacterAt",
-            [](StoredString::p_t storedString_p, json args) {
-                return StoredString::Command::command_p_t(
+            [](InsertCharacterAtCommand::base_t::model_p_t storedString_p,
+                json args) {
+                return Command::command_p_t(
                     new InsertCharacterAtCommand { storedString_p, args });
             }
         };

@@ -1,8 +1,9 @@
 #include "Controller.hpp"
-#include "ScriptInterpreter.hpp"
 #include <gtest/gtest.h>
-#include <iostream>
-#include <string>
+
+typedef WSU::Model::ModelCommand<WSU::Model::StoredString> command_t;
+typedef typename command_t::command_p_t command_p_t;
+typedef WSU::Model::ScriptInterpreter<command_t> interpreter_t;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \test @ref R12_0
@@ -27,7 +28,7 @@ TEST(R12_0, appendCharacter)
     auto storedString_p { controller.getCurrentStoredString_p() };
     auto initialString = storedString_p->getString();
 
-    auto command = WSU::Model::StoredString::makeCommandWithName(
+    auto command = command_t::makeCommandWithName(
         "appendCharacter", storedString_p, json::parse("{\"char\": \"#\"}"));
     controller.runCommandWithUndo(command);
 
@@ -47,9 +48,8 @@ TEST(R12_0, insertCharacterAt)
     auto storedString_p { controller.getCurrentStoredString_p() };
     auto initialString = storedString_p->getString();
 
-    auto command
-        = WSU::Model::StoredString::makeCommandWithName("insertCharacterAt",
-            storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+    auto command = command_t::makeCommandWithName("insertCharacterAt",
+        storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
     controller.runCommandWithUndo(command);
 
     GTEST_ASSERT_EQ(storedString_p->getString(), "!");
@@ -75,11 +75,10 @@ TEST(R12_0, removeCharacterAt)
         "{\"char\": \"d\"}}, {\"command\":\"insertCharacterAt\", \"args\": "
         "{\"char\": \"!\", \"at\":1}}]"
     };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(
-        storedString_p, script) };
+    int32_t result { interpreter_t::interpret(storedString_p, script) };
     auto initialString = storedString_p->getString();
 
-    auto command = WSU::Model::StoredString::makeCommandWithName(
+    auto command = command_t::makeCommandWithName(
         "removeCharacterAt", storedString_p, json::parse("{\"at\":0}"));
     controller.runCommandWithUndo(command);
     controller.runCommandWithUndo(command);
@@ -101,9 +100,8 @@ TEST(R14_0, insertCharacterAt)
     auto storedString_p { controller.getCurrentStoredString_p() };
     auto initialString = storedString_p->getString();
 
-    auto command
-        = WSU::Model::StoredString::makeCommandWithName("insertCharacterAt",
-            storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+    auto command = command_t::makeCommandWithName("insertCharacterAt",
+        storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
     controller.runCommandWithUndo(command);
 
     GTEST_ASSERT_EQ(storedString_p->getString(), "!");
@@ -127,9 +125,8 @@ TEST(R14_0, insertCharacterAt_multi)
     auto initialString = storedString_p->getString();
 
     for (int32_t i = 0; i < 2000; ++i) {
-        auto command
-            = WSU::Model::StoredString::makeCommandWithName("insertCharacterAt",
-                storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+        auto command = command_t::makeCommandWithName("insertCharacterAt",
+            storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
         controller.runCommandWithUndo(command);
     }
     GTEST_ASSERT_EQ(2000, storedString_p->getString().size());

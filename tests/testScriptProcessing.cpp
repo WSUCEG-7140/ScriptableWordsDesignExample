@@ -1,10 +1,11 @@
-#include "AppendCharacterCommand.hpp"
-#include "InsertCharacterAtCommand.hpp"
 #include "ScriptInterpreter.hpp"
 #include "StoredString.hpp"
 #include <gtest/gtest.h>
-#include <iostream>
-#include <string>
+
+typedef WSU::Model::StoredString model_t;
+typedef WSU::Model::ModelCommand<model_t> command_t;
+typedef typename command_t::model_p_t model_p_t;
+typedef WSU::Model::ScriptInterpreter<command_t> interpreter_t;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \test @ref R23_0
@@ -12,12 +13,10 @@
 /// \test @ref R2_0
 TEST(R23_0, scriptProcessingOneCommand)
 {
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "" }
-    };
+    model_p_t ss_p { new WSU::Model::StoredString { "" } };
     std::string script { "[{\"command\":\"appendCharacter\", \"args\": "
                          "{\"char\": \"#\"}}]" };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(ss_p, script) };
+    int32_t result { interpreter_t::interpret(ss_p, script) };
 
     GTEST_ASSERT_EQ(0, result);
     GTEST_ASSERT_EQ(1, ss_p->getString().size());
@@ -31,9 +30,7 @@ TEST(R23_0, scriptProcessingOneCommand)
 /// \test @ref R3_0
 TEST(R23_0, scriptProcessingMultipleCommands)
 {
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "" }
-    };
+    model_p_t ss_p { new WSU::Model::StoredString { "" } };
     std::string script {
         "[{\"command\":\"appendCharacter\", \"args\": "
         "{\"char\": \"a\"}}, {\"command\":\"appendCharacter\", \"args\": "
@@ -42,7 +39,7 @@ TEST(R23_0, scriptProcessingMultipleCommands)
         "{\"char\": \"d\"}}, {\"command\":\"insertCharacterAt\", \"args\": "
         "{\"char\": \"!\", \"at\":1}}]"
     };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(ss_p, script) };
+    int32_t result { interpreter_t::interpret(ss_p, script) };
 
     GTEST_ASSERT_EQ(0, result);
     GTEST_ASSERT_EQ(5, ss_p->getString().size());
@@ -53,12 +50,10 @@ TEST(R23_0, scriptProcessingMultipleCommands)
 /// \test @ref R23_0
 TEST(R23_0, scriptFailedCommand)
 {
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "" }
-    };
+    model_p_t ss_p { new WSU::Model::StoredString { "" } };
     std::string script { "[{\"command\":\"?!/!@#$\", \"args\": "
                          "{\"char\": \"#\"}}]" };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(ss_p, script) };
+    int32_t result { interpreter_t::interpret(ss_p, script) };
 
     GTEST_ASSERT_EQ(-1, result);
     GTEST_ASSERT_EQ(0, ss_p->getString().size());
@@ -71,9 +66,7 @@ TEST(R23_0, scriptFailedCommand)
 /// \test @ref R6_0
 TEST(R6_0, scriptProcessingRemoveAt0Command)
 {
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "" }
-    };
+    model_p_t ss_p { new WSU::Model::StoredString { "" } };
     std::string script {
         "[{\"command\":\"appendCharacter\", \"args\": "
         "{\"char\": \"a\"}}, {\"command\":\"appendCharacter\", \"args\": "
@@ -82,7 +75,7 @@ TEST(R6_0, scriptProcessingRemoveAt0Command)
         "{\"char\": \"d\"}}, {\"command\":\"removeCharacterAt\", \"args\": "
         "{\"at\":0}}]"
     };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(ss_p, script) };
+    int32_t result { interpreter_t::interpret(ss_p, script) };
 
     GTEST_ASSERT_EQ(0, result);
     GTEST_ASSERT_EQ(3, ss_p->getString().size());
@@ -94,9 +87,7 @@ TEST(R6_0, scriptProcessingRemoveAt0Command)
 /// \test @ref R6_0
 TEST(R6_0, scriptProcessingRemoveAtEndCommand)
 {
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "" }
-    };
+    model_p_t ss_p { new WSU::Model::StoredString { "" } };
     std::string script {
         "[{\"command\":\"appendCharacter\", \"args\": "
         "{\"char\": \"a\"}}, {\"command\":\"appendCharacter\", \"args\": "
@@ -105,7 +96,7 @@ TEST(R6_0, scriptProcessingRemoveAtEndCommand)
         "{\"char\": \"d\"}}, {\"command\":\"removeCharacterAt\", \"args\": "
         "{\"at\":3}}]"
     };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(ss_p, script) };
+    int32_t result { interpreter_t::interpret(ss_p, script) };
 
     GTEST_ASSERT_EQ(0, result);
     GTEST_ASSERT_EQ(3, ss_p->getString().size());
@@ -117,9 +108,7 @@ TEST(R6_0, scriptProcessingRemoveAtEndCommand)
 /// \test @ref R23_0
 TEST(R6_0, scriptProcessingRemoveAtMiddleCommand)
 {
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "" }
-    };
+    model_p_t ss_p { new WSU::Model::StoredString { "" } };
     std::string script {
         "[{\"command\":\"appendCharacter\", \"args\": "
         "{\"char\": \"a\"}}, {\"command\":\"appendCharacter\", \"args\": "
@@ -128,7 +117,7 @@ TEST(R6_0, scriptProcessingRemoveAtMiddleCommand)
         "{\"char\": \"d\"}}, {\"command\":\"removeCharacterAt\", \"args\": "
         "{\"at\":2}}]"
     };
-    int32_t result { WSU::Model::ScriptInterpreter::interpret(ss_p, script) };
+    int32_t result { interpreter_t::interpret(ss_p, script) };
 
     GTEST_ASSERT_EQ(0, result);
     GTEST_ASSERT_EQ(3, ss_p->getString().size());

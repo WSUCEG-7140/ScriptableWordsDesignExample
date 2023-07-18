@@ -3,10 +3,11 @@
 namespace WSU {
 namespace Model {
 
-    StoredString::Command::FactoryInstaller
+    AppendCharacterCommand::base_t::FactoryInstaller
         AppendCharacterCommand::s_appendCharacterFactory { "appendCharacter",
-            [](StoredString::p_t storedString_p, json args) {
-                return StoredString::Command::command_p_t(
+            [](AppendCharacterCommand::base_t::model_p_t storedString_p,
+                json args) {
+                return Command::command_p_t(
                     new AppendCharacterCommand { storedString_p, args });
             } };
 
