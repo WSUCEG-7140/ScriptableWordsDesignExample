@@ -1,6 +1,7 @@
 #ifndef ScriptInterpreter_hpp
 #define ScriptInterpreter_hpp
 
+#include "StoredString.hpp"
 #include "json.hpp"
 #include <functional>
 #include <memory>
