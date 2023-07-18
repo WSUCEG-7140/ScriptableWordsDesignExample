@@ -29,8 +29,16 @@ namespace Controller {
             return m_storedString_p;
         }
 
+        /// \imp \ref R12_0
+        /// This functions runs the command at the top of the Undo stack. The commands in teh Undo stack are reciprocals of commands previously executed. As a result, running a command from teh Undo stack effectively undoes a command that was previously run.
         void undo() { m_undoRedoManager.undo(); }
 
+        /// \imp \ref R14_0
+        /// This function redoes a most recently run command that has been undone.
+        void redo() { m_undoRedoManager.redo(); }
+
+        /// \imp \ref R12_0
+        /// This functions runs the specified command in such a way that the reciprocal of the specified command is placed on an Undo stack.
         void runCommandWithUndo(WSU::Model::StoredString::command_p_t command_p)
         {
             m_undoRedoManager.runCommandWithUndo(command_p);

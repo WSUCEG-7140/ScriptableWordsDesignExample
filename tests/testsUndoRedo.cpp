@@ -82,10 +82,81 @@ TEST(R12_0, removeCharacterAt)
     auto command = WSU::Model::StoredString::makeCommandWithName(
         "removeCharacterAt", storedString_p, json::parse("{\"at\":0}"));
     controller.runCommandWithUndo(command);
+    controller.runCommandWithUndo(command);
 
-    GTEST_ASSERT_EQ(storedString_p->getString(), "!bcd");
+    GTEST_ASSERT_EQ(storedString_p->getString(), "bcd");
+
+    controller.undo();
+    controller.undo();
+
+    GTEST_ASSERT_EQ(storedString_p->getString(), initialString);
+}
+
+//////////////////////////////////////////////////////////////////////////////
+/// \test @ref R14_0
+TEST(R14_0, insertCharacterAt)
+{
+    WSU::Controller::Controller controller {};
+
+    auto storedString_p { controller.getCurrentStoredString_p() };
+    auto initialString = storedString_p->getString();
+
+    auto command
+        = WSU::Model::StoredString::makeCommandWithName("insertCharacterAt",
+            storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+    controller.runCommandWithUndo(command);
+
+    GTEST_ASSERT_EQ(storedString_p->getString(), "!");
 
     controller.undo();
 
     GTEST_ASSERT_EQ(storedString_p->getString(), initialString);
+
+    controller.redo();
+
+    GTEST_ASSERT_EQ(storedString_p->getString(), "!");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+/// \test @ref R14_0
+TEST(R14_0, insertCharacterAt_multi)
+{
+    WSU::Controller::Controller controller {};
+
+    auto storedString_p { controller.getCurrentStoredString_p() };
+    auto initialString = storedString_p->getString();
+
+    for (int32_t i = 0; i < 2000; ++i) {
+        auto command
+            = WSU::Model::StoredString::makeCommandWithName("insertCharacterAt",
+                storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+        controller.runCommandWithUndo(command);
+    }
+    GTEST_ASSERT_EQ(2000, storedString_p->getString().size());
+
+    controller.undo();
+    controller.undo();
+    controller.undo();
+    controller.undo();
+    controller.undo();
+
+    GTEST_ASSERT_EQ(1995, storedString_p->getString().size());
+
+    controller.redo();
+    controller.redo();
+    controller.redo();
+    controller.redo();
+    controller.redo();
+
+    GTEST_ASSERT_EQ(2000, storedString_p->getString().size());
+
+    for (int32_t i = 0; i < 2000; ++i) {
+        controller.undo();
+    }
+    GTEST_ASSERT_EQ(0, storedString_p->getString().size());
+
+    for (int32_t i = 0; i < 2000; ++i) {
+        controller.redo();
+    }
+    GTEST_ASSERT_EQ(2000, storedString_p->getString().size());
 }
