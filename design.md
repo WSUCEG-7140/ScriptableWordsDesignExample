@@ -26,3 +26,5 @@ This overarching design applies the [Model View Presenter](https://en.wikipedia.
 
 ## Presenter
 
+@ref WSU::Controller
+

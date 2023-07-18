@@ -6,6 +6,11 @@
 #include <iostream>
 #include <string>
 
+typedef WSU::Model::StoredString model_t;
+typedef WSU::Model::ModelCommand<model_t> command_t;
+typedef typename command_t::model_p_t model_p_t;
+typedef WSU::Model::ScriptInterpreter<command_t> interpreter_t;
+
 ///////////////////////////////////////////////////////////////////////////////
 /// \test @ref R1_0
 TEST(R1_0, zeroCharacters)
@@ -29,10 +34,8 @@ TEST(R2_0, scriptAppendCharacter)
     std::string script { "{\"command\":\"appendCharacter\", \"args\": "
                          "{\"char\": \"#\"}}" };
     auto scriptJSON = json::parse(script);
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "Hello, World!" }
-    };
-    auto command = WSU::Model::StoredString::makeCommandWithName(
+    model_p_t ss_p { new model_t { "Hello, World!" } };
+    auto command = command_t::makeCommandWithName(
         scriptJSON["command"], ss_p, scriptJSON["args"]);
     if (nullptr != command) {
         (*command)();
@@ -47,10 +50,8 @@ TEST(R2_0, scriptAppendCharacterEmpty)
     std::string script { "{\"command\":\"appendCharacter\", \"args\": "
                          "{\"char\": \"#\"}}" };
     auto scriptJSON = json::parse(script);
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "" }
-    };
-    auto command = WSU::Model::StoredString::makeCommandWithName(
+    model_p_t ss_p { new WSU::Model::StoredString { "" } };
+    auto command = command_t::makeCommandWithName(
         scriptJSON["command"], ss_p, scriptJSON["args"]);
     if (nullptr != command) {
         (*command)();
@@ -65,10 +66,8 @@ TEST(R3_0, scriptInsertCharacter)
     std::string script { "{\"command\":\"insertCharacterAt\", \"args\": "
                          "{\"char\": \"#\",\"at\": 1}}" };
     auto scriptJSON = json::parse(script);
-    std::shared_ptr<WSU::Model::StoredString> ss_p {
-        new WSU::Model::StoredString { "Hello, World!" }
-    };
-    auto command = WSU::Model::StoredString::makeCommandWithName(
+    model_p_t ss_p { new WSU::Model::StoredString { "Hello, World!" } };
+    auto command = command_t::makeCommandWithName(
         scriptJSON["command"], ss_p, scriptJSON["args"]);
     if (nullptr != command) {
         (*command)();

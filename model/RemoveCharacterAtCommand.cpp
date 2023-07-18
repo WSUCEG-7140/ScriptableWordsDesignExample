@@ -4,11 +4,11 @@ namespace WSU {
 namespace Model {
 
     /// \imp \ref R21_0 The script command can be looked up by a name that may occur in a script.
-    StoredString::Command::FactoryInstaller
+    RemoveCharacterAtCommand::base_t::FactoryInstaller
         RemoveCharacterAtCommand::s_removeCharacterAtFactory {
             "removeCharacterAt",
             [](StoredString::p_t storedString_p, json args) {
-                return StoredString::Command::command_p_t(
+                return RemoveCharacterAtCommand::base_t::command_p_t(
                     new RemoveCharacterAtCommand { storedString_p, args });
             }
         };

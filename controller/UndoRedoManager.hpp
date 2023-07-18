@@ -1,6 +1,7 @@
 #ifndef UndoRedoManager_hpp
 #define UndoRedoManager_hpp
 
+#include "Command.hpp"
 #include <vector> // Used for stacks
 
 namespace WSU {
@@ -10,11 +11,14 @@ namespace Controller {
     /// \imp \ref R14_0
     /// This class encapsulates data structures and operations related to collections of Command instances that can be undone or redone.
     ///
-    /// Undo and Redo operations are part of the Controller subsystem because, the Undo and redo data structures are not part if the stringModel. The data structures are not save with the Model. Undo and Redo can not be part of the Presenter subsystem because teh Presenter subsystem is not allowed to know about the Model, but Undo and Redo need to know about the Model.
-    /// Redo is implemented as undoing and Undo.
-    template <typename COMMAND_P_T> class UndoRedoManager {
+    /// Undo and Redo operations are part of the Controller subsystem because, the Undo and redo data structures are not part if the stringModel. The data structures are not saved with the Model. Undo and Redo can not be part of the View subsystem because the View subsystem is not allowed to know about the Model, but Undo and Redo need to know about the Model.
+    /// Redo is implemented as undoing an Undo.
+    ///
+    /// @solid The use of pointers to the abstract Model::Command interface is an example of the Dependency Inversion principle of the S.O.L.I.D design principles. This class depends only on the abstract interface with no dependence on any concrete implementation.
+    /// @solid The use of pointers to the abstract Model::Command interface relies upon the Liskov Substitution principle of the S.O.L.I.D design principles. There are never any instances of the Command class itself. Instead, pointers to instances of concrete subclasses of Command are used/substituted.
+    class UndoRedoManager {
     public:
-        typedef COMMAND_P_T command_p_t;
+        typedef std::shared_ptr<Model::Command> command_p_t;
 
     private:
         /// @brief Storage for Commands to be executed when previously run Commands are undone.
