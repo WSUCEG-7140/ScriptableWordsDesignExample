@@ -1,9 +1,7 @@
 #ifndef UndoRedoManager_hpp
 #define UndoRedoManager_hpp
 
-#include "StoredString.hpp"
-#include <string>
-#include <vector>
+#include <vector> // Used for stacks
 
 namespace WSU {
 namespace Controller {
@@ -12,19 +10,22 @@ namespace Controller {
     /// \imp \ref R14_0
     /// This class encapsulates data structures and operations related to collections of Command instances that can be undone or redone.
     ///
-    /// Undo and Redo operations are part of the Controller subsystem because, the Undo and redo data structures are not part if the Model. The data structures are not save with the Model. Undo and Redo can not be part of the Presenter subsystem because teh Presenter subsystem is not allowed to know about the Model, but Undo and Redo need to know about the Model.
+    /// Undo and Redo operations are part of the Controller subsystem because, the Undo and redo data structures are not part if the stringModel. The data structures are not save with the Model. Undo and Redo can not be part of the Presenter subsystem because teh Presenter subsystem is not allowed to know about the Model, but Undo and Redo need to know about the Model.
     /// Redo is implemented as undoing and Undo.
-    class UndoRedoManager {
+    template <typename COMMAND_P_T> class UndoRedoManager {
+    public:
+        typedef COMMAND_P_T command_p_t;
+
     private:
         /// @brief Storage for Commands to be executed when previously run Commands are undone.
         ///
         /// \imp \ref R12_0
-        std::vector<WSU::Model::StoredString::command_p_t> m_undoStack;
+        std::vector<command_p_t> m_undoStack;
 
         /// @brief Storage for Commands to be executed to redo previously undone Commands.
         ///
         /// \imp \ref R14_0
-        std::vector<WSU::Model::StoredString::command_p_t> m_redoStack;
+        std::vector<command_p_t> m_redoStack;
 
         ///  @brief this variable is true if and only if an Undo operation is
         /// in progress;
@@ -66,7 +67,7 @@ namespace Controller {
         ///
         /// \imp \ref R12_0
         /// @param command_p The command to run
-        void runCommandWithUndo(WSU::Model::StoredString::command_p_t command_p)
+        void runCommandWithUndo(command_p_t command_p)
         {
             if (!m_isInUndo) {
                 m_undoStack.push_back(command_p->getReciprocalCommand());

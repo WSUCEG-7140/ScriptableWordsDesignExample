@@ -5,7 +5,6 @@
 #define Controller_hpp
 
 #include "ScriptInterpreter.hpp"
-#include "StoredString.hpp"
 #include "UndoRedoManager.hpp"
 #include <string>
 
@@ -21,7 +20,8 @@ namespace Controller {
             new WSU::Model::StoredString { "" }
         };
 
-        UndoRedoManager m_undoRedoManager {};
+        UndoRedoManager<WSU::Model::StoredString::command_p_t>
+            m_undoRedoManager {};
 
     public:
         WSU::Model::StoredString::p_t getCurrentStoredString_p()
