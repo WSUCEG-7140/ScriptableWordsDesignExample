@@ -2,8 +2,6 @@
 #define ScriptInterpreter_hpp
 
 #include "Command.hpp"
-#include "json.hpp"
-#include <string>
 using json = nlohmann::json;
 
 namespace WSU {

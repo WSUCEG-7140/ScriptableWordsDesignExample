@@ -1,10 +1,6 @@
-#include "AppendCharacterCommand.hpp"
-#include "InsertCharacterAtCommand.hpp"
 #include "ScriptInterpreter.hpp"
 #include "StoredString.hpp"
 #include <gtest/gtest.h>
-#include <iostream>
-#include <string>
 
 typedef WSU::Model::StoredString model_t;
 typedef WSU::Model::ModelCommand<model_t> command_t;

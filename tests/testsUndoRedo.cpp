@@ -1,8 +1,5 @@
 #include "Controller.hpp"
-#include "ScriptInterpreter.hpp"
 #include <gtest/gtest.h>
-#include <iostream>
-#include <string>
 
 typedef WSU::Model::ModelCommand<WSU::Model::StoredString> command_t;
 typedef typename command_t::command_p_t command_p_t;
