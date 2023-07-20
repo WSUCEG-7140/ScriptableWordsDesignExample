@@ -31,17 +31,13 @@ namespace Model {
     public:
         /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via a script, undo, or redo an operation, it is necessary to "run" the operation.
         /// @solid This class applies the "Open for Extension but Closed for Modifications" principle of the S.O.L.I.D design principles. There may be many subclasses that each extend this class by implementing the run() member function, but no class overrides the operator()() member function. Polymorphism enables instances of subclasses to use the operator()() member without ever needing to override the operator()() member.
-        virtual void run() = 0;
+        /// \return A command that is reciprocal to the command being run i.e. a command that will undo whatever the command being run does.
+        virtual command_p_t run() = 0;
 
         /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the @designpattern [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
         /// \anchor DR_1_0 \dreq DR_1_0: Any implementation of a Design Pattern should incorporate related language idioms as a matter of courtesy for other practitioners of the language.
-        void operator()() { run(); }
-
-        /// @brief This function returns a command that performs the reciprocal operation of the Command instance. The reciprocal Command is a Command that undoes whatever this Command does.
-        ///
-        /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
-        /// @return The reciprocal Command
-        virtual command_p_t getReciprocalCommand() = 0;
+        /// \return A command that is reciprocal to the command being run i.e. a command that will undo whatever the command being run does.
+        command_p_t operator()() { return run(); }
     };
 
     /// This is an abstract base class for Commands that may modify the contents of the Model subsystem. Scripts are composed of a sequence of Commands. Undo and Redo are implemented using Commands.

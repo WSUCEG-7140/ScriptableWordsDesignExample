@@ -24,13 +24,9 @@ namespace Model {
         }
 
         /// \imp \ref R60_0
-        virtual void run();
+        command_p_t run() override;
 
         base_t::model_p_t getStoredString() { return getModel_p(); }
-
-        /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
-        /// @return The reciprocal Command
-        virtual base_t::command_p_t getReciprocalCommand();
 
         /// @brief As a side effect of creating this static instance, a Factory is registered to enable construction of Command instances based on the name of the Command. @designpattern [Factory Methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
         static base_t::FactoryInstaller s_insertCharacterAtFactory;

@@ -190,11 +190,9 @@ TEST(R60_0, replaceCharacterAt)
     GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
 
     controller.undo();
-
     GTEST_ASSERT_EQ(storedString_p->getString(), "!!!");
 
     controller.redo();
-
     GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
 
     {
@@ -207,6 +205,7 @@ TEST(R60_0, replaceCharacterAt)
 
     controller.undo();
     GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
+
     controller.redo();
     GTEST_ASSERT_EQ(storedString_p->getString(), "@-!");
 }

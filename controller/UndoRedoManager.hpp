@@ -74,11 +74,9 @@ namespace Controller {
         void runCommandWithUndo(command_p_t command_p)
         {
             if (!m_isInUndo) {
-                m_undoStack.push_back(command_p->getReciprocalCommand());
-                command_p->run();
+                m_undoStack.push_back(command_p->run());
             } else {
-                m_redoStack.push_back(command_p->getReciprocalCommand());
-                command_p->run();
+                m_redoStack.push_back(command_p->run());
             }
         }
     };

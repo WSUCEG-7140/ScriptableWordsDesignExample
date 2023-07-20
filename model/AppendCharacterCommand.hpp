@@ -22,26 +22,16 @@ namespace Model {
         }
 
         /// \imp \ref R2_0
-        virtual void run();
+        command_p_t run() override;
 
         base_t::model_p_t getStoredString() { return getModel_p(); }
 
+    private:
         /// @brief This function returns a command that performs the reciprocal operation of the Command instance. The reciprocal Command is a Command that undoes whatever this Command does.
         ///
         /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
         /// @return The reciprocal Command
-        virtual base_t::command_p_t getReciprocalCommand()
-        {
-            auto args = json {};
-
-            // This is called before append, so the last valid index after
-            // append will the the current size() instead of size() - 1.
-            args["at"] = getStoredString()->getString().size();
-
-            auto reciprocalCommand_p = base_t::makeCommandWithName(
-                "removeCharacterAt", getStoredString(), args);
-            return reciprocalCommand_p;
-        }
+        virtual base_t::command_p_t getReciprocalCommand();
 
         /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.
         static base_t::FactoryInstaller s_appendCharacterFactory;

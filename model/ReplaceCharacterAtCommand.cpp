@@ -15,7 +15,8 @@ namespace Model {
         };
 
     /// \imp \ref R3_0 The script command can be run.
-    void ReplaceCharacterAtCommand::run()
+    ReplaceCharacterAtCommand::base_t::command_p_t
+    ReplaceCharacterAtCommand::run()
     {
         const auto index = getArgs()["at"].get<uint32_t>();
         const auto newCharacter = getArgs()["char"].get<std::string>()[0];
@@ -35,33 +36,7 @@ namespace Model {
             m_group_p->appendCommand(command);
         }
 
-        m_group_p->run();
-    }
-
-    /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
-    /// @return The reciprocal Command
-    ReplaceCharacterAtCommand::base_t::command_p_t
-    ReplaceCharacterAtCommand::getReciprocalCommand()
-    {
-        std::shared_ptr<GroupCommand> newGroup_p { new GroupCommand };
-        const auto index = getArgs()["at"].get<uint32_t>();
-        auto characterToReplace = getStoredString()->getString()[index];
-
-        {
-            auto command = base_t::makeCommandWithName("removeCharacterAt",
-                getStoredString(),
-                json::parse("{\"at\":" + std::to_string(index) + "}"));
-            newGroup_p->appendCommand(command);
-        }
-        {
-            std::string argsString { "{\"char\": \"" };
-            argsString.push_back(characterToReplace);
-            argsString += "\", \"at\":" + std::to_string(index) + "}";
-            auto command = base_t::makeCommandWithName("insertCharacterAt",
-                getStoredString(), json::parse(argsString));
-            newGroup_p->appendCommand(command);
-        }
-        return newGroup_p;
+        return m_group_p->run();
     }
 
 } // namespace Model

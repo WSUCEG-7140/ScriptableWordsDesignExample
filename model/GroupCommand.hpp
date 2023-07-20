@@ -24,24 +24,19 @@ namespace Model {
         }
 
         /// \imp \ref R17_0 Run all of the commands in teh group
-        void run() override
+        Command::command_p_t run() override
         {
+            std::shared_ptr<GroupCommand> newGroup_p { new GroupCommand };
             for (auto command_p : m_commands) {
-                command_p->run();
-            }
-        }
-
-        /// \imp \ref R17_0
-        /// @return This function returns a new GroupCommand instance containing the reciprocal commands in the collection of commands encapsulated by the GroupCommand instance running this function.
-        Command::command_p_t getReciprocalCommand() override
-        {
-            auto newGroup = std::shared_ptr<GroupCommand> { new GroupCommand };
-
-            for (auto command_p : m_commands) {
-                newGroup->appendCommand(command_p->getReciprocalCommand());
+                newGroup_p->appendCommand(command_p->run());
             }
 
-            return newGroup;
+            // Reverse the order because reciprocal commands must execute in
+            // the reverse of the order the commands were run.
+            std::reverse(
+                newGroup_p->m_commands.begin(), newGroup_p->m_commands.end());
+
+            return newGroup_p;
         }
     };
 
