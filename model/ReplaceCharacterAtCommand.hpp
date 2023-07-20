@@ -30,28 +30,7 @@ namespace Model {
 
         /// \imp \ref R12_0 reciprocal Commands are needed to implement Undo.
         /// @return The reciprocal Command
-        virtual base_t::command_p_t getReciprocalCommand()
-        {
-            std::shared_ptr<GroupCommand> newGroup_p { new GroupCommand };
-            const auto index = getArgs()["at"].get<uint32_t>();
-            auto characterToReplace = getStoredString()->getString()[index];
-
-            {
-                auto command = base_t::makeCommandWithName("removeCharacterAt",
-                    getStoredString(),
-                    json::parse("{\"at\":" + std::to_string(index) + "}"));
-                newGroup_p->appendCommand(command);
-            }
-            {
-                std::string argsString { "{\"char\": \"" };
-                argsString.push_back(characterToReplace);
-                argsString += "\", \"at\":" + std::to_string(index) + "}";
-                auto command = base_t::makeCommandWithName("insertCharacterAt",
-                    getStoredString(), json::parse(argsString));
-                newGroup_p->appendCommand(command);
-            }
-            return newGroup_p;
-        }
+        virtual base_t::command_p_t getReciprocalCommand();
 
         /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.
         static base_t::FactoryInstaller s_insertCharacterAtFactory;
