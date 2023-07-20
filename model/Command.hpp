@@ -16,6 +16,8 @@ namespace Model {
     /// @imp @ref R23_0
     ///
     /// @solid This class is an example of the Interface Segregation principle of the S.O.L.I.D design. This class declares only the interface that all Command instances must provide and avoids coupling to any other part of the system.
+    /// @solid This class is an example of the Single Responsibility principle of the S.O.L.I.D design. This class declares only the interface that all Command instances must provide and avoids coupling to any other part of the system.
+    /// @solid This class is an example of the Dependency Inversion principle of the S.O.L.I.D design. This class declares only the interface that all Command instances must provide and avoids coupling to any other part of the system. Other parts of teh system are implemented in terms of this interface without needing to know about concrete subclasses of this class. By not needing to know about specific subclasses, other depends on this high level interface and not any low level implementation.
     class Command {
     public:
         typedef std::shared_ptr<Command> command_p_t;
@@ -28,6 +30,7 @@ namespace Model {
 
     public:
         /// \imp \ref R3_0 \anchor DR3_5 \dreq DR3_5 Use to execute commands via a script, undo, or redo an operation, it is necessary to "run" the operation.
+        /// @solid This class applies the "Open for Extension but Closed for Modifications" principle of the S.O.L.I.D design principles. There may be many subclasses that each extend this class by implementing the run() member function, but no class overrides the operator()() member function. Polymorphism enables instances of subclasses to use the operator()() member without ever needing to override the operator()() member.
         virtual void run() = 0;
 
         /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the Command Design Pattern particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
