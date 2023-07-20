@@ -62,6 +62,7 @@ namespace Model {
         typedef std::unordered_map<std::string, factory_t> factoryMap_t;
 
     private:
+        /// @solid This demonstrates the Don't Repeat Yourself principle of S.O.L.I.D. design principles. Many Command subclasses need access to a Model and some arguments. By placing those properties here, they do not need to be repeated in every subclass.
         /// @brief JSON encode arguments to the command
         json m_args;
 
