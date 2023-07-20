@@ -1,7 +1,7 @@
 #ifndef ReplaceCharacterAtCommand_hpp
 #define ReplaceCharacterAtCommand_hpp
 
-#include "Command.hpp"
+#include "GroupCommand.hpp"
 #include "StoredString.hpp"
 using json = nlohmann::json;
 
@@ -10,6 +10,9 @@ namespace Model {
 
     /// \imp \ref R60_0 This class provides a concrete implementation of the Command design pattern in order to replace a character at an index in a string.
     class ReplaceCharacterAtCommand : public ModelCommand<StoredString> {
+    private:
+        std::shared_ptr<GroupCommand> m_group_p { new GroupCommand };
+
     public:
         typedef ModelCommand<StoredString> base_t;
 
@@ -29,17 +32,25 @@ namespace Model {
         /// @return The reciprocal Command
         virtual base_t::command_p_t getReciprocalCommand()
         {
-            auto args = json {};
-
+            std::shared_ptr<GroupCommand> newGroup_p { new GroupCommand };
             const auto index = getArgs()["at"].get<uint32_t>();
             auto characterToReplace = getStoredString()->getString()[index];
-            getStoredString()->removeCharacterAtIndex(index);
-            getStoredString()->insertCharacterAtIndex(
-                characterToReplace, index);
 
-            auto reciprocalCommand_p = base_t::makeCommandWithName(
-                "replaceCharacterAt", getStoredString(), args);
-            return reciprocalCommand_p;
+            {
+                auto command = base_t::makeCommandWithName("removeCharacterAt",
+                    getStoredString(),
+                    json::parse("{\"at\":" + std::to_string(index) + "}"));
+                newGroup_p->appendCommand(command);
+            }
+            {
+                auto command = base_t::makeCommandWithName("insertCharacterAt",
+                    getStoredString(),
+                    json::parse("{\"char\": \""
+                        + std::to_string(characterToReplace)
+                        + "\", \"at\":" + std::to_string(index) + "}"));
+                newGroup_p->appendCommand(command);
+            }
+            return newGroup_p;
         }
 
         /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.

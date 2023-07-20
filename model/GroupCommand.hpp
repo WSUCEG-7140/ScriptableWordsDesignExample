@@ -14,7 +14,7 @@ namespace Model {
         std::vector<Command::command_p_t> m_commands;
 
     public:
-        typedef ModelCommand<StoredString> base_t;
+        typedef Command base_t;
 
         /// @brief This function appends a command to the collection of commands encapsulated by the instance of GroupCommand that is running this function.
         /// @param command_p The command to append
