@@ -1,0 +1,88 @@
+[==========] Running 25 tests from 11 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from R23_0
+[ RUN      ] R23_0.scriptProcessingOneCommand
+[       OK ] R23_0.scriptProcessingOneCommand (0 ms)
+[ RUN      ] R23_0.scriptProcessingMultipleCommands
+[       OK ] R23_0.scriptProcessingMultipleCommands (1 ms)
+[ RUN      ] R23_0.scriptFailedCommand
+[       OK ] R23_0.scriptFailedCommand (0 ms)
+[----------] 3 tests from R23_0 (1 ms total)
+
+[----------] 3 tests from R6_0
+[ RUN      ] R6_0.scriptProcessingRemoveAt0Command
+[       OK ] R6_0.scriptProcessingRemoveAt0Command (0 ms)
+[ RUN      ] R6_0.scriptProcessingRemoveAtEndCommand
+[       OK ] R6_0.scriptProcessingRemoveAtEndCommand (1 ms)
+[ RUN      ] R6_0.scriptProcessingRemoveAtMiddleCommand
+[       OK ] R6_0.scriptProcessingRemoveAtMiddleCommand (1 ms)
+[----------] 3 tests from R6_0 (2 ms total)
+
+[----------] 2 tests from R1_0
+[ RUN      ] R1_0.zeroCharacters
+[       OK ] R1_0.zeroCharacters (0 ms)
+[ RUN      ] R1_0.moreThanZeroCharacters
+[       OK ] R1_0.moreThanZeroCharacters (0 ms)
+[----------] 2 tests from R1_0 (0 ms total)
+
+[----------] 2 tests from R2_0
+[ RUN      ] R2_0.scriptAppendCharacter
+[       OK ] R2_0.scriptAppendCharacter (0 ms)
+[ RUN      ] R2_0.scriptAppendCharacterEmpty
+[       OK ] R2_0.scriptAppendCharacterEmpty (0 ms)
+[----------] 2 tests from R2_0 (0 ms total)
+
+[----------] 1 test from R3_0
+[ RUN      ] R3_0.scriptInsertCharacter
+[       OK ] R3_0.scriptInsertCharacter (0 ms)
+[----------] 1 test from R3_0 (0 ms total)
+
+[----------] 4 tests from R4_0
+[ RUN      ] R4_0.insertCharactersAtIndex0DoesNotRemoveAnything
+[       OK ] R4_0.insertCharactersAtIndex0DoesNotRemoveAnything (0 ms)
+[ RUN      ] R4_0.insertCharactersAtIndex1DoesNotRemoveAnything
+[       OK ] R4_0.insertCharactersAtIndex1DoesNotRemoveAnything (0 ms)
+[ RUN      ] R4_0.insertCharactersBeginOfEmpty
+[       OK ] R4_0.insertCharactersBeginOfEmpty (0 ms)
+[ RUN      ] R4_0.insertCharacterAtEnd
+[       OK ] R4_0.insertCharacterAtEnd (0 ms)
+[----------] 4 tests from R4_0 (0 ms total)
+
+[----------] 1 test from R7_0
+[ RUN      ] R7_0.removeCharacterAtEnd
+[       OK ] R7_0.removeCharacterAtEnd (0 ms)
+[----------] 1 test from R7_0 (0 ms total)
+
+[----------] 2 tests from R8_0
+[ RUN      ] R8_0.removeCharacterInMiddle
+[       OK ] R8_0.removeCharacterInMiddle (0 ms)
+[ RUN      ] R8_0.removeCharacterAtBegin
+[       OK ] R8_0.removeCharacterAtBegin (0 ms)
+[----------] 2 tests from R8_0 (0 ms total)
+
+[----------] 1 test from Controller
+[ RUN      ] Controller.Controller
+[       OK ] Controller.Controller (0 ms)
+[----------] 1 test from Controller (0 ms total)
+
+[----------] 4 tests from R12_0
+[ RUN      ] R12_0.undoEmptyStack
+[       OK ] R12_0.undoEmptyStack (0 ms)
+[ RUN      ] R12_0.appendCharacter
+[       OK ] R12_0.appendCharacter (1 ms)
+[ RUN      ] R12_0.insertCharacterAt
+[       OK ] R12_0.insertCharacterAt (0 ms)
+[ RUN      ] R12_0.removeCharacterAt
+[       OK ] R12_0.removeCharacterAt (1 ms)
+[----------] 4 tests from R12_0 (2 ms total)
+
+[----------] 2 tests from R14_0
+[ RUN      ] R14_0.insertCharacterAt
+[       OK ] R14_0.insertCharacterAt (0 ms)
+[ RUN      ] R14_0.insertCharacterAt_multi
+[       OK ] R14_0.insertCharacterAt_multi (234 ms)
+[----------] 2 tests from R14_0 (234 ms total)
+
+[----------] Global test environment tear-down
+[==========] 25 tests from 11 test suites ran. (239 ms total)
+[  PASSED  ] 25 tests.
