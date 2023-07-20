@@ -1,4 +1,5 @@
 #include "ReplaceCharacterAtCommand.hpp"
+#include "GroupCommand.hpp"
 
 namespace WSU {
 namespace Model {
