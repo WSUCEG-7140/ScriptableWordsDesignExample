@@ -9,7 +9,7 @@ This Repository helps to demonstrate the following:
 - Issues, 
 - Branches, 
 - Commits, 
-- Pull Rquests, 
+- Pull Requests, 
 - Pull Request Reviews, 
 - Branch Merging, 
 - Issue Closure, 
@@ -17,8 +17,9 @@ This Repository helps to demonstrate the following:
 - "Literate" Programming
 - Test Driven Development
 - Automated Documentation Generation
-- Mechanism for storing Design in Code
+- Mechanism annotating source code with Design information (Modern Literate Programming)
 - Self documenting code
+- Use of famous Design Patterns
 - S.O.L.I.D Design Principles:
   - @anchor Single_Responsibility Single Responsibility
   - @anchor Open_for_Extension_Closed_for_Modification Open for Extension Closed for Modification

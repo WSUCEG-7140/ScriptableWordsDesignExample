@@ -11,7 +11,7 @@ using json = nlohmann::json;
 namespace WSU {
 namespace Model {
 
-    /// This is an abstract base class for Commands that may be run at a later time. The [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) provides a mechanism to encapsulate all information needed to run a Command at a later time. Command instances may be used to implement a scripting language, implement Undo and Redo, or connect View subsystem components to Commands in the Presenter (Controller) subsystem.
+    /// This is an abstract base class for Commands that may be run at a later time. The @designpattern [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) provides a mechanism to encapsulate all information needed to run a Command at a later time. Command instances may be used to implement a scripting language, implement Undo and Redo, or connect View subsystem components to Commands in the Presenter (Controller) subsystem.
     /// @imp @ref R21_0
     /// @imp @ref R23_0
     ///
@@ -33,7 +33,7 @@ namespace Model {
         /// @solid This class applies the "Open for Extension but Closed for Modifications" principle of the S.O.L.I.D design principles. There may be many subclasses that each extend this class by implementing the run() member function, but no class overrides the operator()() member function. Polymorphism enables instances of subclasses to use the operator()() member without ever needing to override the operator()() member.
         virtual void run() = 0;
 
-        /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
+        /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the @designpattern [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
         /// \anchor DR_1_0 \dreq DR_1_0: Any implementation of a Design Pattern should incorporate related language idioms as a matter of courtesy for other practitioners of the language.
         void operator()() { run(); }
 
@@ -54,7 +54,7 @@ namespace Model {
         typedef typename Command::command_p_t command_p_t;
         typedef std::shared_ptr<MODEL_T> model_p_t;
 
-        /// Type for Factory Methods. Having a standard type simplifies use of [Factory Methods](https://en.wikipedia.org/wiki/Factory_method_pattern) because the caller need not know any details (like special arguments) about the object(s) created by the Factory Method.
+        /// Type for Factory Methods. Having a standard type simplifies use of @designpattern [Factory Methods](https://en.wikipedia.org/wiki/Factory_method_pattern) because the caller need not know any details (like special arguments) about the object(s) created by the Factory Method.
         typedef std::function<command_p_t(model_p_t model_p, const json& args)>
             factory_t;
 
@@ -101,7 +101,7 @@ namespace Model {
             return own_t::_getNameToFactoryMap();
         }
 
-        /// \imp \ref R3_1 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This method provides a mechanism to associate a command Factory with the name of the command. A command Factory Method is an implantation of the [Factory Method Design Pattern](https://en.wikipedia.org/wiki/Factory_method_pattern).
+        /// \imp \ref R3_1 In order to recognize commands by their names in a script, it is necessary to be able to lookup commands by name. This method provides a mechanism to associate a command Factory with the name of the command. A command Factory Method is an implantation of the @designpattern [Factory Method Design Pattern](https://en.wikipedia.org/wiki/Factory_method_pattern).
         ///
         ///\args factory : The Factory to be associated with the name, name.
         ///\args name : The name of a Command Factory

@@ -8,7 +8,7 @@ using json = nlohmann::json;
 namespace WSU {
 namespace Model {
 
-    /// \imp \ref R60_0 This class provides a concrete implementation of the [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) in order to replace a character at an index in a string.
+    /// \imp \ref R60_0 This class provides a concrete implementation of the @designpattern [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) in order to replace a character at an index in a string.
     class ReplaceCharacterAtCommand : public ModelCommand<StoredString> {
     private:
         std::shared_ptr<GroupCommand> m_group_p { new GroupCommand };
@@ -32,7 +32,7 @@ namespace Model {
         /// @return The reciprocal Command
         virtual base_t::command_p_t getReciprocalCommand();
 
-        /// @brief As a side effect of creating this static instance, a FActory is registered to enable construction of Command instances based on the name of the Command.
+        /// @brief As a side effect of creating this static instance, a Factory is registered to enable construction of Command instances based on the name of the Command. @designpattern [Factory Methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
         static base_t::FactoryInstaller s_insertCharacterAtFactory;
     };
 

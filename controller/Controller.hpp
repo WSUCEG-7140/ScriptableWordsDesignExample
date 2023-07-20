@@ -12,7 +12,7 @@ namespace WSU {
 
 /// Controller Subsystem
 ///
-/// This Module contains components that are part of the "Supervising Controller" within an overall \ref ModelViewPresenter Design Pattern.
+/// This Module contains components that are part of the "Supervising Controller" within an overall @designpattern \ref ModelViewPresenter Design Pattern.
 namespace Controller {
 
     typedef WSU::Model::StoredString model_t;
