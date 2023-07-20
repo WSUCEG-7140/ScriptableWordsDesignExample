@@ -33,7 +33,7 @@ namespace Model {
         /// @solid This class applies the "Open for Extension but Closed for Modifications" principle of the S.O.L.I.D design principles. There may be many subclasses that each extend this class by implementing the run() member function, but no class overrides the operator()() member function. Polymorphism enables instances of subclasses to use the operator()() member without ever needing to override the operator()() member.
         virtual void run() = 0;
 
-        /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the Command Design Pattern particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
+        /// C++ has a well established idiom know as [Functors](https://www.geeksforgeeks.org/functors-in-cpp). Functors are a C++ language level implementation of the [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) particularly when combined with C++11 std::bind and std::function. Providing this operator makes it seamless to use this class as a Functor along with std::bind and std::function.
         /// \anchor DR_1_0 \dreq DR_1_0: Any implementation of a Design Pattern should incorporate related language idioms as a matter of courtesy for other practitioners of the language.
         void operator()() { run(); }
 

@@ -196,4 +196,17 @@ TEST(R60_0, replaceCharacterAt)
     controller.redo();
 
     GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
+
+    {
+        auto command = command_t::makeCommandWithName("replaceCharacterAt",
+            storedString_p, json::parse("{\"char\": \"@\", \"at\":0}"));
+        controller.runCommandWithUndo(command);
+    }
+
+    GTEST_ASSERT_EQ(storedString_p->getString(), "@-!");
+
+    controller.undo();
+    GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
+    controller.redo();
+    GTEST_ASSERT_EQ(storedString_p->getString(), "@-!");
 }

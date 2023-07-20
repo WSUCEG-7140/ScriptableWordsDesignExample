@@ -9,7 +9,7 @@ using json = nlohmann::json;
 namespace WSU {
 namespace Model {
 
-    /// \imp \ref R3_0 This class provides a concrete implementation of the Command design pattern in order to insert a character at an index in a string.
+    /// \imp \ref R3_0 This class provides a concrete implementation of the [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) in order to insert a character at an index in a string.
     class InsertCharacterAtCommand : public ModelCommand<StoredString> {
     public:
         typedef ModelCommand<StoredString> base_t;

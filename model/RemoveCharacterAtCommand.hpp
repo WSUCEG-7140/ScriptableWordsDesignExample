@@ -9,7 +9,7 @@ using json = nlohmann::json;
 namespace WSU {
 namespace Model {
 
-    /// \imp \ref R6_0 This class provides a concrete implementation of the Command design pattern in order to remove a character at an index in a string.
+    /// \imp \ref R6_0 This class provides a concrete implementation of the [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) in order to remove a character at an index in a string.
     class RemoveCharacterAtCommand : public ModelCommand<StoredString> {
     public:
         typedef ModelCommand<StoredString> base_t;

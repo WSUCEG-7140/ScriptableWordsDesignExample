@@ -8,7 +8,7 @@ using json = nlohmann::json;
 namespace WSU {
 namespace Model {
 
-    /// \imp \ref R60_0 This class provides a concrete implementation of the Command design pattern in order to replace a character at an index in a string.
+    /// \imp \ref R60_0 This class provides a concrete implementation of the [Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern) in order to replace a character at an index in a string.
     class ReplaceCharacterAtCommand : public ModelCommand<StoredString> {
     private:
         std::shared_ptr<GroupCommand> m_group_p { new GroupCommand };
