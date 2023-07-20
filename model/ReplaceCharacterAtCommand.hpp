@@ -43,11 +43,11 @@ namespace Model {
                 newGroup_p->appendCommand(command);
             }
             {
+                std::string argsString { "{\"char\": \"" };
+                argsString.push_back(characterToReplace);
+                argsString += "\", \"at\":" + std::to_string(index) + "}";
                 auto command = base_t::makeCommandWithName("insertCharacterAt",
-                    getStoredString(),
-                    json::parse("{\"char\": \""
-                        + std::to_string(characterToReplace)
-                        + "\", \"at\":" + std::to_string(index) + "}"));
+                    getStoredString(), json::parse(argsString));
                 newGroup_p->appendCommand(command);
             }
             return newGroup_p;
