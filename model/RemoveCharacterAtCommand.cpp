@@ -1,4 +1,5 @@
 #include "RemoveCharacterAtCommand.hpp"
+#include <iostream>
 
 namespace WSU {
 namespace Model {
@@ -14,11 +15,26 @@ namespace Model {
         };
 
     /// \imp \ref R6_0 The script command can be run.
-    void RemoveCharacterAtCommand::run()
+    RemoveCharacterAtCommand::base_t::command_p_t
+    RemoveCharacterAtCommand::run()
     {
+        auto result = getReciprocalCommand();
         getStoredString()->removeCharacterAtIndex(
             getArgs()["at"].get<uint32_t>());
+        return result;
     }
 
+    RemoveCharacterAtCommand::base_t::command_p_t
+    RemoveCharacterAtCommand::getReciprocalCommand()
+    {
+        json args {};
+        auto index = getArgs()["at"];
+        args["char"] = std::string { getStoredString()->getString()[index] };
+        args["at"] = index;
+
+        auto reciprocalCommand_p = base_t::makeCommandWithName(
+            "insertCharacterAt", getStoredString(), args);
+        return reciprocalCommand_p;
+    }
 } // namespace Model
 } // namespace WSU

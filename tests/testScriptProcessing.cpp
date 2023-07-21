@@ -123,3 +123,14 @@ TEST(R6_0, scriptProcessingRemoveAtMiddleCommand)
     GTEST_ASSERT_EQ(3, ss_p->getString().size());
     GTEST_ASSERT_EQ(ss_p->getString(), "abd");
 }
+
+///////////////////////////////////////////////////////////////////////////////
+/// \test @ref R60_0
+TEST(R60_0, replaceCharactersAtIndexMiddle)
+{
+    model_p_t ss_p { new WSU::Model::StoredString { "Hello, World!" } };
+    std::string script { "[{\"command\":\"replaceCharacterAt\", \"args\": "
+                         "{\"char\": \"-\", \"at\": 6}}]" };
+    int32_t result { interpreter_t::interpret(ss_p, script) };
+    GTEST_ASSERT_EQ(ss_p->getString(), "Hello,-World!");
+}

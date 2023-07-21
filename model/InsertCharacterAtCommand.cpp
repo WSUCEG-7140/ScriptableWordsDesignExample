@@ -14,11 +14,25 @@ namespace Model {
         };
 
     /// \imp \ref R3_0 The script command can be run.
-    void InsertCharacterAtCommand::run()
+    InsertCharacterAtCommand::base_t::command_p_t
+    InsertCharacterAtCommand::run()
     {
+        auto result = getReciprocalCommand();
         getStoredString()->insertCharacterAtIndex(
             getArgs()["char"].get<std::string>()[0],
             getArgs()["at"].get<uint32_t>());
+        return result;
+    }
+
+    InsertCharacterAtCommand::base_t::command_p_t
+    InsertCharacterAtCommand::getReciprocalCommand()
+    {
+        auto args = json {};
+        args["at"] = getArgs()["at"];
+
+        auto reciprocalCommand_p = base_t::makeCommandWithName(
+            "removeCharacterAt", getStoredString(), args);
+        return reciprocalCommand_p;
     }
 
 } // namespace Model

@@ -157,3 +157,55 @@ TEST(R14_0, insertCharacterAt_multi)
     }
     GTEST_ASSERT_EQ(2000, storedString_p->getString().size());
 }
+
+//////////////////////////////////////////////////////////////////////////////
+/// \test @ref R14_0
+TEST(R60_0, replaceCharacterAt)
+{
+    WSU::Controller::Controller controller {};
+
+    auto storedString_p { controller.getCurrentStoredString_p() };
+
+    {
+        auto command = command_t::makeCommandWithName("insertCharacterAt",
+            storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+        controller.runCommandWithUndo(command);
+    }
+    {
+        auto command = command_t::makeCommandWithName("insertCharacterAt",
+            storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+        controller.runCommandWithUndo(command);
+    }
+    {
+        auto command = command_t::makeCommandWithName("insertCharacterAt",
+            storedString_p, json::parse("{\"char\": \"!\", \"at\":0}"));
+        controller.runCommandWithUndo(command);
+    }
+    {
+        auto command = command_t::makeCommandWithName("replaceCharacterAt",
+            storedString_p, json::parse("{\"char\": \"-\", \"at\":1}"));
+        controller.runCommandWithUndo(command);
+    }
+
+    GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
+
+    controller.undo();
+    GTEST_ASSERT_EQ(storedString_p->getString(), "!!!");
+
+    controller.redo();
+    GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
+
+    {
+        auto command = command_t::makeCommandWithName("replaceCharacterAt",
+            storedString_p, json::parse("{\"char\": \"@\", \"at\":0}"));
+        controller.runCommandWithUndo(command);
+    }
+
+    GTEST_ASSERT_EQ(storedString_p->getString(), "@-!");
+
+    controller.undo();
+    GTEST_ASSERT_EQ(storedString_p->getString(), "!-!");
+
+    controller.redo();
+    GTEST_ASSERT_EQ(storedString_p->getString(), "@-!");
+}
