@@ -1,0 +1,21 @@
+Filename                              Functions  Missed Functions  Executed       Lines      Missed Lines     Cover    Branches   Missed Branches     Cover
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+controller/Controller.hpp                     4                 0   100.00%           6                 0   100.00%           0                 0         -
+controller/UndoRedoManager.hpp                3                 0   100.00%          27                 0   100.00%          10                 3    70.00%
+model/AppendCharacterCommand.cpp              3                 0   100.00%          18                 0   100.00%           0                 0         -
+model/AppendCharacterCommand.hpp              2                 0   100.00%           3                 0   100.00%           0                 0         -
+model/Command.hpp                            11                 0   100.00%          33                 0   100.00%           4                 1    75.00%
+model/GroupCommand.hpp                        2                 0   100.00%          12                 0   100.00%           2                 0   100.00%
+model/InsertCharacterAtCommand.cpp            3                 0   100.00%          18                 0   100.00%           0                 0         -
+model/InsertCharacterAtCommand.hpp            2                 0   100.00%           3                 0   100.00%           0                 0         -
+model/RemoveCharacterAtCommand.cpp            3                 0   100.00%          19                 0   100.00%           0                 0         -
+model/RemoveCharacterAtCommand.hpp            2                 0   100.00%           3                 0   100.00%           0                 0         -
+model/ReplaceCharacterAtCommand.cpp           2                 0   100.00%          23                 0   100.00%           0                 0         -
+model/ReplaceCharacterAtCommand.hpp           2                 0   100.00%           3                 0   100.00%           0                 0         -
+model/ScriptInterpreter.hpp                   1                 0   100.00%          14                 0   100.00%           4                 0   100.00%
+model/StoredString.hpp                        6                 0   100.00%          12                 0   100.00%           0                 0         -
+tests/testScriptProcessing.cpp                7                 0   100.00%          80                 0   100.00%           0                 0         -
+tests/tests.cpp                              14                 0   100.00%          88                 0   100.00%           6                 3    50.00%
+tests/testsUndoRedo.cpp                       7                 0   100.00%         141                 0   100.00%           6                 0   100.00%
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                        74                 0   100.00%         503                 0   100.00%          32                 7    78.12%
